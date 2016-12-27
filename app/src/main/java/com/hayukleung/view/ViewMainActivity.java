@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.hayukleung.view.HandleView.HandleViewActivity;
+import com.hayukleung.view.IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity;
 import com.hayukleung.view.RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity;
 import com.hayukleung.view.SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity;
 import java.util.ArrayList;
@@ -46,6 +47,11 @@ public class ViewMainActivity extends AppCompatActivity {
     mViewModelList.add(new ViewModel("HandleView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, HandleViewActivity.class));
+      }
+    }));
+    mViewModelList.add(new ViewModel("IQiYiInfiniteLoadingView", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, IQiYiInfiniteLoadingViewActivity.class));
       }
     }));
     mViewModelList.add(new ViewModel("RadarInfiniteLoadingView", new View.OnClickListener() {
