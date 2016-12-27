@@ -23,6 +23,9 @@
         android:name=".HandleView.HandleViewActivity"
         android:label="HandleView"/>
     <activity
+        android:name=".RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity"
+        android:label="RadarInfiniteLoadingView"/>
+    <activity
         android:name=".SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity"
         android:label="SonarInfiniteLoadingView"/>
   </application>

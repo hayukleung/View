@@ -55,95 +55,160 @@ public class SonarInfiniteLoadingView extends BaseView {
     mFloatQueue = new LinkedList<>();
 
     // frame 1
-    mFloatQueue.add(0.98f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.1f);
-    mFloatQueue.add(0.2f);
     mFloatQueue.add(0.3f);
     mFloatQueue.add(0.4f);
+    mFloatQueue.add(0.5f);
+    mFloatQueue.add(0.6f);
+    mFloatQueue.add(0.7f);
+    mFloatQueue.add(0.8f);
+    mFloatQueue.add(0.9f);
+    mFloatQueue.add(0.95f);
+    mFloatQueue.add(0.98f);
 
     // frame 2
-    mFloatQueue.add(0.95f);
-    mFloatQueue.add(0.98f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.1f);
     mFloatQueue.add(0.2f);
     mFloatQueue.add(0.3f);
+    mFloatQueue.add(0.4f);
+    mFloatQueue.add(0.5f);
+    mFloatQueue.add(0.6f);
+    mFloatQueue.add(0.7f);
+    mFloatQueue.add(0.8f);
+    mFloatQueue.add(0.9f);
+    mFloatQueue.add(0.95f);
 
     // frame 3
-    mFloatQueue.add(0.9f);
-    mFloatQueue.add(0.95f);
-    mFloatQueue.add(0.98f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
     mFloatQueue.add(0.1f);
     mFloatQueue.add(0.2f);
+    mFloatQueue.add(0.3f);
+    mFloatQueue.add(0.4f);
+    mFloatQueue.add(0.5f);
+    mFloatQueue.add(0.6f);
+    mFloatQueue.add(0.7f);
+    mFloatQueue.add(0.8f);
+    mFloatQueue.add(0.9f);
 
     // frame 4
-    mFloatQueue.add(0.8f);
-    mFloatQueue.add(0.9f);
-    mFloatQueue.add(0.95f);
-    mFloatQueue.add(0.98f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
     mFloatQueue.add(0.0f);
     mFloatQueue.add(0.1f);
+    mFloatQueue.add(0.2f);
+    mFloatQueue.add(0.3f);
+    mFloatQueue.add(0.4f);
+    mFloatQueue.add(0.5f);
+    mFloatQueue.add(0.6f);
+    mFloatQueue.add(0.7f);
+    mFloatQueue.add(0.8f);
 
     // frame 5
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.1f);
+    mFloatQueue.add(0.2f);
+    mFloatQueue.add(0.3f);
+    mFloatQueue.add(0.4f);
+    mFloatQueue.add(0.5f);
+    mFloatQueue.add(0.6f);
     mFloatQueue.add(0.7f);
-    mFloatQueue.add(0.8f);
-    mFloatQueue.add(0.9f);
-    mFloatQueue.add(0.95f);
-    mFloatQueue.add(0.98f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
 
     // frame 6
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.1f);
+    mFloatQueue.add(0.2f);
+    mFloatQueue.add(0.3f);
+    mFloatQueue.add(0.4f);
+    mFloatQueue.add(0.5f);
     mFloatQueue.add(0.6f);
-    mFloatQueue.add(0.7f);
-    mFloatQueue.add(0.8f);
-    mFloatQueue.add(0.9f);
-    mFloatQueue.add(0.95f);
-    mFloatQueue.add(0.98f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
 
     // frame 7
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.1f);
+    mFloatQueue.add(0.2f);
+    mFloatQueue.add(0.3f);
+    mFloatQueue.add(0.4f);
     mFloatQueue.add(0.5f);
-    mFloatQueue.add(0.6f);
-    mFloatQueue.add(0.7f);
-    mFloatQueue.add(0.8f);
-    mFloatQueue.add(0.9f);
-    mFloatQueue.add(0.95f);
-    mFloatQueue.add(0.98f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
 
     // frame 8
-    mFloatQueue.add(0.4f);
-    mFloatQueue.add(0.5f);
-    mFloatQueue.add(0.6f);
-    mFloatQueue.add(0.7f);
-    mFloatQueue.add(0.8f);
-    mFloatQueue.add(0.9f);
-    mFloatQueue.add(0.95f);
     mFloatQueue.add(0.98f);
     mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.1f);
+    mFloatQueue.add(0.2f);
+    mFloatQueue.add(0.3f);
+    mFloatQueue.add(0.4f);
 
     // frame 9
+    mFloatQueue.add(0.95f);
+    mFloatQueue.add(0.98f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.1f);
+    mFloatQueue.add(0.2f);
     mFloatQueue.add(0.3f);
+
+    // frame 10
+    mFloatQueue.add(0.9f);
+    mFloatQueue.add(0.95f);
+    mFloatQueue.add(0.98f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.1f);
+    mFloatQueue.add(0.2f);
+
+    // frame 11
+    mFloatQueue.add(0.8f);
+    mFloatQueue.add(0.9f);
+    mFloatQueue.add(0.95f);
+    mFloatQueue.add(0.98f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.1f);
+
+    // frame 12
+    mFloatQueue.add(0.7f);
+    mFloatQueue.add(0.8f);
+    mFloatQueue.add(0.9f);
+    mFloatQueue.add(0.95f);
+    mFloatQueue.add(0.98f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+
+    // frame 13
+    mFloatQueue.add(0.6f);
+    mFloatQueue.add(0.7f);
+    mFloatQueue.add(0.8f);
+    mFloatQueue.add(0.9f);
+    mFloatQueue.add(0.95f);
+    mFloatQueue.add(0.98f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+
+    // frame 14
+    mFloatQueue.add(0.5f);
+    mFloatQueue.add(0.6f);
+    mFloatQueue.add(0.7f);
+    mFloatQueue.add(0.8f);
+    mFloatQueue.add(0.9f);
+    mFloatQueue.add(0.95f);
+    mFloatQueue.add(0.98f);
+    mFloatQueue.add(0.0f);
+    mFloatQueue.add(0.0f);
+
+    // frame 15
     mFloatQueue.add(0.4f);
     mFloatQueue.add(0.5f);
     mFloatQueue.add(0.6f);
@@ -152,72 +217,7 @@ public class SonarInfiniteLoadingView extends BaseView {
     mFloatQueue.add(0.9f);
     mFloatQueue.add(0.95f);
     mFloatQueue.add(0.98f);
-
-    // frame 10
-    mFloatQueue.add(0.2f);
-    mFloatQueue.add(0.3f);
-    mFloatQueue.add(0.4f);
-    mFloatQueue.add(0.5f);
-    mFloatQueue.add(0.6f);
-    mFloatQueue.add(0.7f);
-    mFloatQueue.add(0.8f);
-    mFloatQueue.add(0.9f);
-    mFloatQueue.add(0.95f);
-
-    // frame 11
-    mFloatQueue.add(0.1f);
-    mFloatQueue.add(0.2f);
-    mFloatQueue.add(0.3f);
-    mFloatQueue.add(0.4f);
-    mFloatQueue.add(0.5f);
-    mFloatQueue.add(0.6f);
-    mFloatQueue.add(0.7f);
-    mFloatQueue.add(0.8f);
-    mFloatQueue.add(0.9f);
-
-    // frame 12
     mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.1f);
-    mFloatQueue.add(0.2f);
-    mFloatQueue.add(0.3f);
-    mFloatQueue.add(0.4f);
-    mFloatQueue.add(0.5f);
-    mFloatQueue.add(0.6f);
-    mFloatQueue.add(0.7f);
-    mFloatQueue.add(0.8f);
-
-    // frame 13
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.1f);
-    mFloatQueue.add(0.2f);
-    mFloatQueue.add(0.3f);
-    mFloatQueue.add(0.4f);
-    mFloatQueue.add(0.5f);
-    mFloatQueue.add(0.6f);
-    mFloatQueue.add(0.7f);
-
-    // frame 14
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.1f);
-    mFloatQueue.add(0.2f);
-    mFloatQueue.add(0.3f);
-    mFloatQueue.add(0.4f);
-    mFloatQueue.add(0.5f);
-    mFloatQueue.add(0.6f);
-
-    // frame 15
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.0f);
-    mFloatQueue.add(0.1f);
-    mFloatQueue.add(0.2f);
-    mFloatQueue.add(0.3f);
-    mFloatQueue.add(0.4f);
-    mFloatQueue.add(0.5f);
   }
 
   @Override protected void onDraw(Canvas canvas) {
@@ -266,7 +266,7 @@ public class SonarInfiniteLoadingView extends BaseView {
     drawCircle(canvas, cx, cy, strokeWidth, radius8, ratio8);
     drawCircle(canvas, cx, cy, strokeWidth, radius9, ratio9);
 
-    postDelayed(mRunnable, 100);
+    postDelayed(mRunnable, 50);
   }
 
   private float getRatio() {
