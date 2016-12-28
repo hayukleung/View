@@ -20,7 +20,7 @@
 ### PorterDuffXfermode
 [原文链接](http://blog.csdn.net/allen315410/article/details/45077165)
 
-![PorterDuffXfermode.png](./img/PorterDuffXfermode.png)
+![PorterDuffXfermode.png](./img/PorterDuffXfermode.jpg)
 
 ![PorterDuffXfermode.png](./img/PorterDuffXfermode-Form.png)
 

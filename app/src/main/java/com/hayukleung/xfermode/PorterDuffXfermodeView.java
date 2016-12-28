@@ -9,6 +9,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.view.View;
 import com.hayukleung.Utils.Screen;
 import com.hayukleung.view.BaseView;
 
@@ -141,9 +142,16 @@ public class PorterDuffXfermodeView extends BaseView {
     mPaintForText = new Paint(Paint.ANTI_ALIAS_FLAG);
     mPaintForText.setColor(Color.WHITE);
     mPaintForText.setTextAlign(Paint.Align.CENTER);
+
+    // 禁止GPU加速
+    // 参见 http://blog.csdn.net/iispring/article/details/49835061
+    setLayerType(View.LAYER_TYPE_SOFTWARE, null);
   }
 
   @Override protected void onDraw(Canvas canvas) {
+
+    canvas.drawColor(Color.BLACK);
+
     mPaint.setFilterBitmap(false);
     mPaint.setStyle(Paint.Style.FILL);
 

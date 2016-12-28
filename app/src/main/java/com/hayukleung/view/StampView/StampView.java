@@ -4,9 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
 import com.hayukleung.view.BaseView;
 
 import static android.view.View.MeasureSpec.EXACTLY;
@@ -30,6 +33,8 @@ public class StampView extends BaseView {
 
   private int mRadius;
 
+  private PorterDuffXfermode mPorterDuffXfermode;
+
   public StampView(Context context) {
     super(context);
   }
@@ -51,6 +56,12 @@ public class StampView extends BaseView {
     mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     mPaint.setStyle(Paint.Style.FILL);
     mPaint.setStrokeWidth(0);
+
+    mPorterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+
+    // 禁止GPU加速
+    // 参见 http://blog.csdn.net/iispring/article/details/49835061
+    setLayerType(View.LAYER_TYPE_SOFTWARE, null);
   }
 
   @Override protected void onDraw(Canvas canvas) {
@@ -65,11 +76,11 @@ public class StampView extends BaseView {
     int rectW = width - 2 * padding;
     int rectH = height - 2 * padding;
 
+    int diameter = mRadius * 2;
+
     mPaint.setColor(Color.parseColor("#FF000000"));
 
     canvas.drawRect(padding, padding, width - padding, height - padding, mPaint);
-
-    int diameter = mRadius * 2;
 
     mPaint.setColor(Color.parseColor("#FFFF0000"));
 
@@ -93,6 +104,8 @@ public class StampView extends BaseView {
       }
     }
 
+    mPaint.setXfermode(mPorterDuffXfermode);
+
     // 绘制左右锯齿
     for (int i = 0; i < rectH / (mRadius * 2); i++) {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -112,6 +125,7 @@ public class StampView extends BaseView {
         canvas.drawArc(mRectFForTooth, 90, 180, false, mPaint);
       }
     }
+    mPaint.setXfermode(null);
   }
 
   @Override protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
