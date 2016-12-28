@@ -34,9 +34,9 @@ public class XfermodeMainActivity extends BaseEntranceActivity {
       }
     }));
 
-    addEntrance(new Entrance("XfermodeView", new View.OnClickListener() {
+    addEntrance(new Entrance("PorterDuffXfermodeView", new View.OnClickListener() {
       @Override public void onClick(View v) {
-        startActivity(new Intent(XfermodeMainActivity.this, XfermodeViewActivity.class));
+        startActivity(new Intent(XfermodeMainActivity.this, PorterDuffXfermodeViewActivity.class));
       }
     }));
   }

@@ -52,8 +52,8 @@
         android:name="com.hayukleung.xfermode.UsingPorterDuffColorFilterViewActivity"
         android:label="UsingPorterDuffColorFilterView"/>
     <activity
-        android:name="com.hayukleung.xfermode.XfermodeViewActivity"
-        android:label="XfermodeView"/>
+        android:name="com.hayukleung.xfermode.PorterDuffXfermodeViewActivity"
+        android:label="PorterDuffXfermodeView"/>
   </application>
 
 </manifest>

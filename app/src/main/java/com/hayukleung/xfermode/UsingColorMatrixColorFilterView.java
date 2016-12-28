@@ -9,6 +9,9 @@ import android.util.AttributeSet;
 import com.hayukleung.Utils.Screen;
 import com.hayukleung.view.BaseView;
 
+/**
+ * http://www.cnblogs.com/plokmju/p/android_ColorMatrix.html
+ */
 public class UsingColorMatrixColorFilterView extends BaseView {
 
   private Paint mPaint;
@@ -42,9 +45,12 @@ public class UsingColorMatrixColorFilterView extends BaseView {
     // 设置描边的粗细，单位：像素px 注意：当setStrokeWidth(0)的时候描边宽度并不为0而是只占一个像素
     mPaint.setStrokeWidth(20);
     // 设置画笔颜色为自定义颜色
-    mPaint.setColor(Color.argb(255, 255, 128, 102));
+    mPaint.setColor(Color.argb(255, 255, 255, 255));
     ColorMatrixColorFilter colorFilter = new ColorMatrixColorFilter(new float[] {
-        0.5F, 0, 0, 0, 0, 0, 0.5F, 0, 0, 0, 0, 0, 0.5F, 0, 0, 0, 0, 0, 1, 0
+        0.5F, 0, 0, 0, 0, // R
+        0, 0.5F, 0, 0, 0, // G
+        0, 0, 0.5F, 0, 0, // B
+        0, 0, 0, 1, 0     // A
     });
     mPaint.setColorFilter(colorFilter);
 

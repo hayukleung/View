@@ -45,6 +45,7 @@ public class UsingPorterDuffColorFilterView extends BaseView {
     mY = screen.heightPx / 2 - mBitmap.getHeight() / 2;
 
     mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    // 偏红
     PorterDuffColorFilter colorFilter =
         new PorterDuffColorFilter(0XFFFF0000, PorterDuff.Mode.DARKEN);
     mPaint.setColorFilter(colorFilter);
