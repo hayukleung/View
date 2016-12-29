@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import com.hayukleung.BaseEntranceActivity;
 import com.hayukleung.Entrance;
+import com.hayukleung.view.BezierCurveView.BezierCurveViewActivity;
 import com.hayukleung.view.CLInfiniteLoadingView.CLInfiniteLoadingViewActivity;
 import com.hayukleung.view.HandleView.HandleViewActivity;
 import com.hayukleung.view.IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity;
@@ -27,6 +28,11 @@ public class ViewMainActivity extends BaseEntranceActivity {
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
 
     super.onCreate(savedInstanceState);
+    addEntrance(new Entrance("BezierCurveView", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, BezierCurveViewActivity.class));
+      }
+    }));
     addEntrance(new Entrance("CLInfiniteLoadingView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, CLInfiniteLoadingViewActivity.class));

@@ -1,8 +1,17 @@
-# 自定义View系列合集
+# 自定义View系列知识点及API索引
 
 ## 自定义View
 
+### BezierCurveView
+- Bezier Curve
+- DashPathEffect
+- onTouchEvent
+
+### CLInfiniteLoadingView
+- Xfermode ATOP
+
 ### HandleView
+![Android坐标](./img/Coordinator.png)
 
 ### IQiYiInfiniteLoadingView
 - canvas.draw
@@ -14,6 +23,7 @@
 ### RadarInfiniteLoadingView
 
 ### StampView
+- Xfermode
 
 ## Xfermode示例
 
