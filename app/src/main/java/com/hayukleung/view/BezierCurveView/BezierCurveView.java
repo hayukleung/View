@@ -22,6 +22,8 @@ import com.hayukleung.view.BaseView;
 
 /**
  * 贝塞尔曲线
+ *
+ * ref http://blog.csdn.net/wingichoy/article/details/50492828
  */
 public class BezierCurveView extends BaseView {
 

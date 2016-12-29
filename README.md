@@ -3,26 +3,40 @@
 ## 自定义View
 
 ### BezierCurveView
+![BezierCurveView](./img/BezierCurveView.gif)
 - Bezier Curve
 - DashPathEffect
 - onTouchEvent
 
+### BezierInfiniteLoadingView
+![BezierInfiniteLoadingView](./img/BezierInfiniteLoadingView.gif)
+- Bezier Curve
+
 ### CLInfiniteLoadingView
+![CLInfiniteLoadingView](./img/CLInfiniteLoadingView.gif)
 - Xfermode ATOP
 
 ### HandleView
+![HandleView](./img/HandleView.gif)
+
 ![Android坐标](./img/Coordinator.png)
 
+- OnTouchListener
+
 ### IQiYiInfiniteLoadingView
+![IQiYiInfiniteLoadingView](./img/IQiYiInfiniteLoadingView.gif)
 - canvas.draw
 - canvas.save
 - canvas.restore
 
 ### SonarInfiniteLoadingView
+![SonarInfiniteLoadingView](./img/SonarInfiniteLoadingView.gif)
 
 ### RadarInfiniteLoadingView
+![RadarInfiniteLoadingView](./img/RadarInfiniteLoadingView.gif)
 
 ### StampView
+![StampView](./img/StampView.jpg)
 - Xfermode
 
 ## Xfermode示例
@@ -30,7 +44,7 @@
 ### PorterDuffXfermode
 [原文链接](http://blog.csdn.net/allen315410/article/details/45077165)
 
-![PorterDuffXfermode.png](./img/PorterDuffXfermode.jpg)
+![PorterDuffXfermodeView](./img/PorterDuffXfermodeView.jpg)
 
 ![PorterDuffXfermode.png](./img/PorterDuffXfermode-Form.png)
 

@@ -189,12 +189,6 @@ public class CLInfiniteLoadingView extends BaseView {
     int width = measureWidth(widthMeasureSpec);
     int height = measureHeight(heightMeasureSpec);
     setMeasuredDimension(width, height);
-
-    // int wSize = MeasureSpec.getSize(widthMeasureSpec);
-    // int hSize = MeasureSpec.getSize(heightMeasureSpec);
-    // int wMeasureSpec = MeasureSpec.makeMeasureSpec(wSize, MeasureSpec.EXACTLY);
-    // int hMeasureSpec = MeasureSpec.makeMeasureSpec(hSize, MeasureSpec.EXACTLY);
-    // setMeasuredDimension(wMeasureSpec, hMeasureSpec);
   }
 
   private int measureWidth(int widthMeasureSpec) {

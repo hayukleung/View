@@ -28,6 +28,9 @@
         android:name=".BezierCurveView.BezierCurveViewActivity"
         android:label="BezierCurveView"/>
     <activity
+        android:name=".BezierCurveView.BezierInfiniteLoadingViewActivity"
+        android:label="BezierInfiniteLoadingView"/>
+    <activity
         android:name=".CLInfiniteLoadingView.CLInfiniteLoadingViewActivity"
         android:label="CLInfiniteLoadingView"/>
     <activity
