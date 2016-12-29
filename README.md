@@ -1,5 +1,7 @@
 # 自定义View系列知识点及API索引
 
+> [欢迎关注我的简书博客](http://www.jianshu.com/users/2471a8f0e7a5/latest_articles)
+
 ## 自定义View
 
 ### BezierCurveView

@@ -95,7 +95,7 @@ public class IQiYiInfiniteLoadingView extends BaseView {
     canvas.rotate(getAngleForCanvasTriangle(), cx, cy);
     float size = getWidth() / 4;
     canvas.drawPath(getTrianglePath(size, cx, cy), mPaintForTriangle);
-    canvas.restore();
+    // canvas.restore();
 
     postDelayed(mRunnable, 50);
   }

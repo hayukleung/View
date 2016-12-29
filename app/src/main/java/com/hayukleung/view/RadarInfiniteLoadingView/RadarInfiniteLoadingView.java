@@ -82,7 +82,7 @@ public class RadarInfiniteLoadingView extends BaseView {
 
     canvas.rotate(getAngle(), mCx, mCy);
     canvas.drawCircle(mCx, mCy, getWidth() / 2, mPaintForCircle);
-    canvas.restore();
+    // canvas.restore();
 
     postDelayed(mRunnable, 16);
   }
