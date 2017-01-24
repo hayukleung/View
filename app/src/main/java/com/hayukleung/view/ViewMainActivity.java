@@ -11,6 +11,7 @@ import com.hayukleung.view.BezierCurveView.BezierInfiniteLoadingViewActivity;
 import com.hayukleung.view.CLInfiniteLoadingView.CLInfiniteLoadingViewActivity;
 import com.hayukleung.view.HandleView.HandleViewActivity;
 import com.hayukleung.view.IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity;
+import com.hayukleung.view.MDLikeLinkTextView.MDLikeLinkTextViewActivity;
 import com.hayukleung.view.RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity;
 import com.hayukleung.view.ShyaringanView.ShyaringanViewActivity;
 import com.hayukleung.view.SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity;
@@ -53,6 +54,11 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("IQiYiInfiniteLoadingView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, IQiYiInfiniteLoadingViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("MDLikeLinkTextView", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, MDLikeLinkTextViewActivity.class));
       }
     }));
     addEntrance(new Entrance("RadarInfiniteLoadingView", new View.OnClickListener() {

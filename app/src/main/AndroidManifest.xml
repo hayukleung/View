@@ -48,6 +48,9 @@
         android:name=".IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity"
         android:label="IQiYiInfiniteLoadingView"/>
     <activity
+        android:name=".MDLikeLinkTextView.MDLikeLinkTextViewActivity"
+        android:label="MDLikeLinkTextView"/>
+    <activity
         android:name=".RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity"
         android:label="RadarInfiniteLoadingView"/>
     <activity
