@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.util.AttributeSet;
-import com.hayukleung.Utils.Screen;
+import com.hayukleung.utils.Screen;
 import com.hayukleung.view.BaseView;
 import com.hayukleung.view.R;
 

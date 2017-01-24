@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import com.hayukleung.Utils.Screen;
+import com.hayukleung.utils.Screen;
 import com.hayukleung.view.BaseView;
 
 /**

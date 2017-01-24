@@ -12,6 +12,7 @@ import com.hayukleung.view.CLInfiniteLoadingView.CLInfiniteLoadingViewActivity;
 import com.hayukleung.view.HandleView.HandleViewActivity;
 import com.hayukleung.view.IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity;
 import com.hayukleung.view.RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity;
+import com.hayukleung.view.ShyaringanView.ShyaringanViewActivity;
 import com.hayukleung.view.SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity;
 import com.hayukleung.view.StampView.StampViewActivity;
 
@@ -57,6 +58,11 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("RadarInfiniteLoadingView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, RadarInfiniteLoadingViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("ShyaringanView", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, ShyaringanViewActivity.class));
       }
     }));
     addEntrance(new Entrance("SonarInfiniteLoadingView", new View.OnClickListener() {

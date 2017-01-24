@@ -11,13 +11,15 @@
     <activity
         android:name="com.hayukleung.EntranceActivity"
         android:label="@string/app_name">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-
-        <category android:name="android.intent.category.DEFAULT"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
     </activity>
+
+    <!--using-->
+    <activity
+        android:name="com.hayukleung.using.UsingMainActivity"
+        android:label="UsingMain"/>
+    <activity
+        android:name="com.hayukleung.using.UsingCoordinatorLayoutActivity"
+        android:label="UsingCoordinatorLayout"/>
 
     <!--view-->
 
@@ -42,6 +44,16 @@
     <activity
         android:name=".RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity"
         android:label="RadarInfiniteLoadingView"/>
+    <activity
+        android:name=".ShyaringanView.ShyaringanViewActivity"
+        android:label="ShyaringanView">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
     <activity
         android:name=".SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity"
         android:label="SonarInfiniteLoadingView"/>

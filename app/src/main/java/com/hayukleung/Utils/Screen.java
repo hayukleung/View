@@ -1,4 +1,4 @@
-package com.hayukleung.Utils;
+package com.hayukleung.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

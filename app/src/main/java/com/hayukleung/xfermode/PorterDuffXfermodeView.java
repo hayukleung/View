@@ -10,7 +10,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import com.hayukleung.Utils.Screen;
+import com.hayukleung.utils.Screen;
 import com.hayukleung.view.BaseView;
 
 public class PorterDuffXfermodeView extends BaseView {

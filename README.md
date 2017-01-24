@@ -2,6 +2,12 @@
 
 > [欢迎关注我的简书博客](http://www.jianshu.com/users/2471a8f0e7a5/latest_articles)
 
+## UsingView
+
+### AppbarLayout
+### CollapsingToolbarLayout
+### CoordinatorLayout
+
 ## 自定义View
 
 ### BezierCurveView
@@ -27,7 +33,11 @@
 
 ### IQiYiInfiniteLoadingView
 ![IQiYiInfiniteLoadingView](./img/IQiYiInfiniteLoadingView.gif)
-- canvas.draw
+- canvas.save
+- canvas.restore
+
+### ShyaringanView
+![ShyaringanView](./img/ShyaringanView.gif)
 - canvas.save
 - canvas.restore
 
