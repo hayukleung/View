@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import com.hayukleung.utils.Screen;
 import com.hayukleung.view.BaseView;
 
 /**
@@ -21,13 +20,12 @@ import com.hayukleung.view.BaseView;
 
 public class ShyaringanView extends BaseView {
 
+  private static final int GOGOK_COUNT = 3;
   private Paint mPaintCircle;
   private Paint mPaintGogok;
   private RectF mRectFGogok;
   private Path mPathGogok;
-  private int mStrokeWidthUnit;
   private int mAngle = -6;
-  private static final int GOGOK_COUNT = 3;
 
   public ShyaringanView(Context context) {
     super(context);
@@ -47,16 +45,7 @@ public class ShyaringanView extends BaseView {
 
   @Override
   protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-    mStrokeWidthUnit = Screen.getInstance(getContext()).dp2px(2);
     mPathGogok = new Path();
-  }
-
-  @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    int wSize = MeasureSpec.getSize(widthMeasureSpec);
-    int hSize = MeasureSpec.getSize(heightMeasureSpec);
-    int size = wSize < hSize ? wSize : hSize;
-    int sizeMeasureSpec = MeasureSpec.makeMeasureSpec(size, MeasureSpec.EXACTLY);
-    setMeasuredDimension(sizeMeasureSpec, sizeMeasureSpec);
   }
 
   @Override protected void onDraw(Canvas canvas) {
@@ -64,6 +53,7 @@ public class ShyaringanView extends BaseView {
     int cx = getWidth() / 2;
     int cy = getHeight() / 2;
     int radius = getWidth() / 2 / 10 * 9;
+    int strokeWidthUnit = getWidth() / 60;
 
     if (null == mPaintCircle) {
       mPaintCircle = new Paint();
@@ -79,9 +69,9 @@ public class ShyaringanView extends BaseView {
     {
       mPaintCircle.setStyle(Paint.Style.STROKE);
       mPaintCircle.setColor(Color.argb(255, 0, 0, 0));
-      mPaintCircle.setStrokeWidth(mStrokeWidthUnit * 2);
+      mPaintCircle.setStrokeWidth(strokeWidthUnit * 2);
       canvas.drawCircle(cx, cy, radius, mPaintCircle);
-      mPaintCircle.setStrokeWidth(mStrokeWidthUnit);
+      mPaintCircle.setStrokeWidth(strokeWidthUnit);
       canvas.drawCircle(cx, cy, radius / 5 * 3, mPaintCircle);
     }
     // 绘制眼珠
@@ -101,7 +91,7 @@ public class ShyaringanView extends BaseView {
           mPaintGogok.setAntiAlias(true);
           mPaintGogok.setStyle(Paint.Style.FILL);
           mPaintGogok.setColor(Color.argb(255, 0, 0, 0));
-          mPaintGogok.setStrokeWidth(mStrokeWidthUnit);
+          mPaintGogok.setStrokeWidth(strokeWidthUnit);
         }
         float rGogokUnit = (float) getWidth() / 1000f;
         if (null == mRectFGogok) {
@@ -147,7 +137,15 @@ public class ShyaringanView extends BaseView {
         canvas.restore();
       }
     }
-    postInvalidateDelayed(40);
+    postInvalidateDelayed(30);
+  }
+
+  @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    int wSize = MeasureSpec.getSize(widthMeasureSpec);
+    int hSize = MeasureSpec.getSize(heightMeasureSpec);
+    int size = wSize < hSize ? wSize : hSize;
+    int sizeMeasureSpec = MeasureSpec.makeMeasureSpec(size, MeasureSpec.EXACTLY);
+    setMeasuredDimension(sizeMeasureSpec, sizeMeasureSpec);
   }
 
   private int getAngle() {

@@ -36,6 +36,12 @@
 - canvas.save
 - canvas.restore
 
+### MDLikeLinkTextView
+- Regex
+- Pattern
+
+### PatternView
+
 ### ShyaringanView
 ![ShyaringanView](./img/ShyaringanView.gif)
 - canvas.save

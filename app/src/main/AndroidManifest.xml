@@ -51,6 +51,9 @@
         android:name=".MDLikeLinkTextView.MDLikeLinkTextViewActivity"
         android:label="MDLikeLinkTextView"/>
     <activity
+        android:name=".PatternView.PatternViewActivity"
+        android:label="PatternView"/>
+    <activity
         android:name=".RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity"
         android:label="RadarInfiniteLoadingView"/>
     <activity
