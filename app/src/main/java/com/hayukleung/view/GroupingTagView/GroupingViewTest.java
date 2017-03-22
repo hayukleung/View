@@ -17,7 +17,7 @@ import java.util.Random;
 public class GroupingViewTest {
 
   // GroupingTag 个数
-  private static final int GROUPING_TAG_COUNT = 50;
+  private static final int GROUPING_TAG_COUNT = 40;
 
   // 单行所能容纳的最大长度
   private static final int MAX_LENGTH = 30;
@@ -28,7 +28,9 @@ public class GroupingViewTest {
     List<GroupingTag> groupingTagList = new ArrayList<>(GROUPING_TAG_COUNT);
     for (int i = 0; i < GROUPING_TAG_COUNT; i++) {
       GroupingTag groupingTag = new GroupingTag();
-      groupingTag.setLength(new Random().nextInt(10) + 1);
+      // 1 - 8 随机数
+      groupingTag.setLength(new Random().nextInt(8) + 1);
+      // groupingTag.setLength((new Random().nextInt(10) + new Random().nextInt(10)) / 2 + 1);
       groupingTagList.add(groupingTag);
     }
 
@@ -52,8 +54,8 @@ public class GroupingViewTest {
       group.add(new GroupingLine());
     }
 
-    // 0 - 4 效果逐步提升
-    switch (3) {
+    // 0 - 5 效果逐步提升
+    switch (5) {
       case 0: {
         // 等数分组 - 顺序分组
         do {
@@ -116,7 +118,26 @@ public class GroupingViewTest {
         break;
       }
       case 4: {
-        // 不等数分组
+        // 不等数分组 - 根据所在行剩余容量逆序分组
+        Collections.reverse(groupingTagList);
+        for (GroupingTag groupingTag : groupingTagList) {
+          group.get(0).addGroupingTag(groupingTag);
+          Collections.sort(group);
+        }
+        break;
+      }
+      case 5: {
+        // 不等数分组 - 根据所在行剩余容量顺序逆序交替分组
+        Collections.reverse(groupingTagList);
+        int flag = 0;
+        do {
+          int size = groupingTagList.size();
+          if (0 < size) {
+            group.get(0).addGroupingTag(groupingTagList.remove((0 == flag % 2 ? 0 : size - 1)));
+            Collections.sort(group);
+          }
+          flag++;
+        } while (0 < groupingTagList.size());
         break;
       }
     }
