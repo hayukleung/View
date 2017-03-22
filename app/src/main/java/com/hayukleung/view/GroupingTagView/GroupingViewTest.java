@@ -144,7 +144,7 @@ public class GroupingViewTest {
 
     // 打印结果
     for (int i = 0; i < lineCount; i++) {
-      System.out.println(i + " --> " + group.get(i).toString());
+      System.out.println(" " + group.get(i).toString());
     }
   }
 }
