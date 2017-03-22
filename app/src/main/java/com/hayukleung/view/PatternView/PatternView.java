@@ -119,7 +119,7 @@ public class PatternView extends BaseView {
       }
     }
 
-    // TODO 绘制手势路径
+    // 绘制手势路径
     mPaint.setStyle(Paint.Style.STROKE);
     sortBySeq();
     Pattern pattern0 = mPatterns.get(0);
@@ -149,54 +149,6 @@ public class PatternView extends BaseView {
     int size = wSize < hSize ? wSize : hSize;
     int sizeMeasureSpec = MeasureSpec.makeMeasureSpec(size, MeasureSpec.EXACTLY);
     setMeasuredDimension(sizeMeasureSpec, sizeMeasureSpec);
-  }
-
-  private float getXByIndex(int index) {
-    int size = getWidth() / 6;
-    switch (index) {
-      case 0:
-      case 3:
-      case 6: {
-        return size;
-      }
-      case 1:
-      case 4:
-      case 7: {
-        return size * 3;
-      }
-      case 2:
-      case 5:
-      case 8: {
-        return size * 5;
-      }
-      default: {
-        return -1;
-      }
-    }
-  }
-
-  private float getYByIndex(int index) {
-    int size = getWidth() / 6;
-    switch (index) {
-      case 0:
-      case 1:
-      case 2: {
-        return size;
-      }
-      case 3:
-      case 4:
-      case 5: {
-        return size * 3;
-      }
-      case 6:
-      case 7:
-      case 8: {
-        return size * 5;
-      }
-      default: {
-        return -1;
-      }
-    }
   }
 
   private void sortBySeq() {
@@ -289,6 +241,54 @@ public class PatternView extends BaseView {
    */
   private double calculateDistance(float xs, float ys, float xd, float yd) {
     return Math.sqrt(Math.pow(Math.abs(xs - xd), 2) + Math.pow(Math.abs(ys - yd), 2));
+  }
+
+  private float getXByIndex(int index) {
+    int size = getWidth() / 6;
+    switch (index) {
+      case 0:
+      case 3:
+      case 6: {
+        return size;
+      }
+      case 1:
+      case 4:
+      case 7: {
+        return size * 3;
+      }
+      case 2:
+      case 5:
+      case 8: {
+        return size * 5;
+      }
+      default: {
+        return -1;
+      }
+    }
+  }
+
+  private float getYByIndex(int index) {
+    int size = getWidth() / 6;
+    switch (index) {
+      case 0:
+      case 1:
+      case 2: {
+        return size;
+      }
+      case 3:
+      case 4:
+      case 5: {
+        return size * 3;
+      }
+      case 6:
+      case 7:
+      case 8: {
+        return size * 5;
+      }
+      default: {
+        return -1;
+      }
+    }
   }
 
   private static class Pattern implements Comparable<Pattern> {
