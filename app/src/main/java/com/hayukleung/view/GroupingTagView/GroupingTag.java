@@ -12,22 +12,23 @@ import java.io.Serializable;
  * at 2017-03-22 15:44
  */
 
-public class GroupingTag implements Serializable, Comparable<GroupingTag> {
+class GroupingTag implements Serializable, Comparable<GroupingTag> {
 
-  /**
-   * 长度
-   */
-  private int length;
+  private String content;
 
-  public int getLength() {
-    return length;
+  public String getContent() {
+    return content;
   }
 
-  public void setLength(int length) {
-    this.length = length;
+  public void setContent(String content) {
+    this.content = content;
   }
 
   @Override public int compareTo(@NonNull GroupingTag o) {
-    return this.length - o.length;
+    return this.getLength() - o.getLength();
+  }
+
+  int getLength() {
+    return null == content ? 0 : content.length();
   }
 }

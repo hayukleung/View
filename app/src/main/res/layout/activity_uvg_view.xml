@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hayukleung.view.UsingViewGroup.UVGView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    >
+
+  <View
+      android:layout_width="240dp"
+      android:layout_height="60dp"
+      android:background="@android:color/holo_red_light"
+      />
+
+  <View
+      android:layout_width="60dp"
+      android:layout_height="240dp"
+      android:background="@android:color/holo_green_light"
+      />
+
+  <View
+      android:layout_width="60dp"
+      android:layout_height="240dp"
+      android:background="@android:color/holo_orange_light"
+      />
+
+  <View
+      android:layout_width="240dp"
+      android:layout_height="60dp"
+      android:background="@android:color/holo_blue_light"
+      />
+</com.hayukleung.view.UsingViewGroup.UVGView>

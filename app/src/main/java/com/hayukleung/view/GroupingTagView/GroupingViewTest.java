@@ -1,10 +1,5 @@
 package com.hayukleung.view.GroupingTagView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
 /**
  * View
  * com.hayukleung.view.GroupingTagView
@@ -14,6 +9,14 @@ import java.util.Random;
  * at 2017-03-22 15:46
  */
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
+/**
+ * 纯算法测试
+ */
 public class GroupingViewTest {
 
   // GroupingTag 个数
@@ -26,14 +29,126 @@ public class GroupingViewTest {
 
     // 随机生成 GROUPING_TAG_COUNT 个 GroupingTag
     List<GroupingTag> groupingTagList = new ArrayList<>(GROUPING_TAG_COUNT);
-    for (int i = 0; i < GROUPING_TAG_COUNT; i++) {
-      GroupingTag groupingTag = new GroupingTag();
-      // 1 - 8 随机数
-      groupingTag.setLength(new Random().nextInt(8) + 1);
-      // groupingTag.setLength((new Random().nextInt(10) + new Random().nextInt(10)) / 2 + 1);
+
+    if (false) {
+      for (int i = 0; i < GROUPING_TAG_COUNT; i++) {
+        GroupingTag groupingTag = new GroupingTag();
+        // 1 - 8 随机数
+        int length = new Random().nextInt(8) + 1;
+        String content = "";
+        for (int j = 0; j < length; j++) {
+          content += "*";
+        }
+        groupingTag.setContent(content);
+        groupingTagList.add(groupingTag);
+      }
+    } else {
+
+      GroupingTag groupingTag;
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("0123456789");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("11");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("************");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("mac");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("iOS");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("Android");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("just do it");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("哦");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("hello flow layout");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("0123456789");
+      groupingTagList.add(groupingTag);
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("11");
+      groupingTagList.add(groupingTag);
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("************");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("mac");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("iOS");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("Android");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("just do it");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("哦");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("hello flow layout");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("0123456789");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("11");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("************");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("mac");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("iOS");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("Android");
+      groupingTagList.add(groupingTag);
+
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("just do it");
+      groupingTagList.add(groupingTag);
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("哦");
+      groupingTagList.add(groupingTag);
+      groupingTag = new GroupingTag();
+      groupingTag.setContent("hello flow layout");
       groupingTagList.add(groupingTag);
     }
-
     // 按长度从小到大排序
     Collections.sort(groupingTagList);
 

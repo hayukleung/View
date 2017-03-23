@@ -9,6 +9,7 @@ import com.hayukleung.Entrance;
 import com.hayukleung.view.BezierCurveView.BezierCurveViewActivity;
 import com.hayukleung.view.BezierCurveView.BezierInfiniteLoadingViewActivity;
 import com.hayukleung.view.CLInfiniteLoadingView.CLInfiniteLoadingViewActivity;
+import com.hayukleung.view.GroupingTagView.GroupingTagViewActivity;
 import com.hayukleung.view.HandleView.HandleViewActivity;
 import com.hayukleung.view.IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity;
 import com.hayukleung.view.MDLikeLinkTextView.MDLikeLinkTextViewActivity;
@@ -17,6 +18,8 @@ import com.hayukleung.view.RadarInfiniteLoadingView.RadarInfiniteLoadingViewActi
 import com.hayukleung.view.ShyaringanView.ShyaringanViewActivity;
 import com.hayukleung.view.SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity;
 import com.hayukleung.view.StampView.StampViewActivity;
+import com.hayukleung.view.UsingViewGroup.FlowLayoutActivity;
+import com.hayukleung.view.UsingViewGroup.UVGViewActivity;
 
 /**
  * View
@@ -45,6 +48,11 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("CLInfiniteLoadingView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, CLInfiniteLoadingViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("GroupingTagView", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, GroupingTagViewActivity.class));
       }
     }));
     addEntrance(new Entrance("HandleView", new View.OnClickListener() {
@@ -85,6 +93,16 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("StampView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, StampViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("FlowLayout", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, FlowLayoutActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("UVGView", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, UVGViewActivity.class));
       }
     }));
   }
