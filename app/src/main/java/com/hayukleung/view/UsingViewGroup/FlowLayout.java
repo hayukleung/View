@@ -24,11 +24,11 @@ public class FlowLayout extends BaseViewGroup {
   /**
    * 存储所有的View，按行记录
    */
-  private List<List<FlowView>> mAllViews = new ArrayList<>();
+  private List<List<View>> mLineList = new ArrayList<>();
   /**
    * 记录每一行的最大高度
    */
-  private List<Integer> mLineHeight = new ArrayList<>();
+  private List<Integer> mLineHeightList = new ArrayList<>();
 
   public FlowLayout(Context context) {
     super(context);
@@ -48,7 +48,6 @@ public class FlowLayout extends BaseViewGroup {
 
   @Override
   protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -107,19 +106,19 @@ public class FlowLayout extends BaseViewGroup {
   }
 
   @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
-    mAllViews.clear();
-    mLineHeight.clear();
+    mLineList.clear();
+    mLineHeightList.clear();
 
     int width = getWidth();
 
     int lineWidth = 0;
     int lineHeight = 0;
     // 存储每一行所有的childView
-    List<FlowView> lineViews = new ArrayList<>();
+    List<View> line = new ArrayList<>();
     int cCount = getChildCount();
     // 遍历所有的孩子
     for (int i = 0; i < cCount; i++) {
-      FlowView child = (FlowView) getChildAt(i);
+      View child = getChildAt(i);
       MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
       int childWidth = child.getMeasuredWidth();
       int childHeight = child.getMeasuredHeight();
@@ -127,34 +126,35 @@ public class FlowLayout extends BaseViewGroup {
       // 如果已经需要换行
       if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth > width) {
         // 记录这一行所有的View以及最大高度
-        mLineHeight.add(lineHeight);
+        mLineHeightList.add(lineHeight);
         // 将当前行的childView保存，然后开启新的ArrayList保存下一行的childView
-        mAllViews.add(lineViews);
-        lineWidth = 0;// 重置行宽
-        lineViews = new ArrayList<>();
+        mLineList.add(line);
+        // 重置行宽
+        lineWidth = 0;
+        line = new ArrayList<>();
       }
       // 如果不需要换行，则累加
       lineWidth += childWidth + lp.leftMargin + lp.rightMargin;
       lineHeight = Math.max(lineHeight, childHeight + lp.topMargin + lp.bottomMargin);
-      lineViews.add(child);
+      line.add(child);
     }
     // 记录最后一行
-    mLineHeight.add(lineHeight);
-    mAllViews.add(lineViews);
+    mLineHeightList.add(lineHeight);
+    mLineList.add(line);
 
     int left = 0;
     int top = 0;
     // 得到总行数
-    int lineNums = mAllViews.size();
-    for (int i = 0; i < lineNums; i++) {
+    int lineCount = mLineList.size();
+    for (int i = 0; i < lineCount; i++) {
       // 每一行的所有的views
-      lineViews = mAllViews.get(i);
+      line = mLineList.get(i);
       // 当前行的最大高度
-      lineHeight = mLineHeight.get(i);
+      lineHeight = mLineHeightList.get(i);
 
       // 遍历当前行所有的View
-      for (int j = 0; j < lineViews.size(); j++) {
-        View child = lineViews.get(j);
+      for (int j = 0; j < line.size(); j++) {
+        View child = line.get(j);
         if (child.getVisibility() == View.GONE) {
           continue;
         }
@@ -174,136 +174,6 @@ public class FlowLayout extends BaseViewGroup {
       top += lineHeight;
     }
   }
-
-  //  @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
-  //    mAllViews.clear();
-  //    mLineHeight.clear();
-  //
-  //    int width = getWidth();
-  //
-  //    // 分组
-  //    int lineWidth = 0;
-  //    int lineHeight = 0;
-  //    // 存储每一行所有的childView
-  //    List<FlowView> lineViews = new ArrayList<>();
-  //    int cCount = getChildCount();
-  //
-  //    // 植入算法
-  //    List<FlowView> flowViewList = new ArrayList<>(cCount);
-  //    for (int i = 0; i < cCount; i++) {
-  //      flowViewList.add((FlowView) getChildAt(i));
-  //    }
-  //
-  //    // 按长度从小到大排序
-  //    Collections.sort(flowViewList);
-  //
-  //    int totalLength = 0;
-  //    for (int i = 0; i < cCount; i++) {
-  //      FlowView child = (FlowView) getChildAt(i);
-  //      MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-  //      int childWidth = child.getMeasuredWidth();
-  //      int childHeight = child.getMeasuredHeight();
-  //
-  //      int viewWidth = childWidth + lp.leftMargin + lp.rightMargin;
-  //      child.setViewWidth(viewWidth);
-  //      totalLength += viewWidth;
-  //    }
-  //    // 预计的最小行数
-  //    int lineCount = (int) Math.ceil((float) totalLength / (float) width);
-  //    // 顺序 - 从小到大
-  //    // 逆序 - 从大到小
-  //    List<FlowLine> group = new ArrayList<>(lineCount);
-  //    for (int i = 0; i < lineCount; i++) {
-  //      group.add(new FlowLine());
-  //    }
-  //
-  //    // 不等数分组 - 根据所在行剩余容量顺序逆序交替分组
-  //    Collections.reverse(flowViewList);
-  //    int flag = 0;
-  //    do {
-  //      int size = flowViewList.size();
-  //      if (0 < size) {
-  //        group.get(0).addGroupingTag(flowViewList.remove((0 == flag % 2 ? 0 : size - 1)));
-  //        Collections.sort(group);
-  //      }
-  //      flag++;
-  //    } while (0 < flowViewList.size());
-  //
-  //    for (FlowLine line : group) {
-  //      lineHeight = 0;
-  //      List<FlowView> fvs = line.getGroupingTagList();
-  //      for (FlowView fv : fvs) {
-  //        MarginLayoutParams lp = (MarginLayoutParams) fv.getLayoutParams();
-  //        lineHeight = Math.max(lineHeight, fv.getMeasuredHeight() + lp.topMargin + lp.bottomMargin);
-  //      }
-  //      mAllViews.add(fvs);
-  //      mLineHeight.add(lineHeight);
-  //    }
-  //
-  //    if (false) {
-  //      List<FlowView> temp = new ArrayList<>();
-  //      for (FlowLine line : group) {
-  //        temp.addAll(line.getGroupingTagList());
-  //      }
-  //
-  //      // 分组
-  //      for (FlowView child : temp) {
-  //        MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-  //        int childWidth = child.getMeasuredWidth();
-  //        int childHeight = child.getMeasuredHeight();
-  //
-  //        // 如果已经需要换行
-  //        if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth > width) {
-  //          // 记录这一行所有的View以及最大高度
-  //          mLineHeight.add(lineHeight);
-  //          // 将当前行的childView保存，然后开启新的ArrayList保存下一行的childView
-  //          mAllViews.add(lineViews);
-  //          lineWidth = 0; // 重置行宽
-  //          lineViews = new ArrayList<>();
-  //        }
-  //        // 如果不需要换行，则累加
-  //        lineWidth += childWidth + lp.leftMargin + lp.rightMargin;
-  //        lineHeight = Math.max(lineHeight, childHeight + lp.topMargin + lp.bottomMargin);
-  //        lineViews.add(child);
-  //      }
-  //      // 记录最后一行
-  //      mLineHeight.add(lineHeight);
-  //      mAllViews.add(lineViews);
-  //    }
-  //
-  //    // 1. 布局
-  //    int left = 0;
-  //    int top = 0;
-  //    // 得到总行数
-  //    int lineNums = mAllViews.size();
-  //    for (int i = 0; i < lineNums; i++) {
-  //      // 每一行的所有的views
-  //      lineViews = mAllViews.get(i);
-  //      // 当前行的最大高度
-  //      lineHeight = mLineHeight.get(i);
-  //
-  //      // 遍历当前行所有的View
-  //      for (int j = 0; j < lineViews.size(); j++) {
-  //        View child = lineViews.get(j);
-  //        if (child.getVisibility() == View.GONE) {
-  //          continue;
-  //        }
-  //        MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-  //
-  //        // 计算childView的left top right bottom
-  //        int lc = left + lp.leftMargin;
-  //        int tc = top + lp.topMargin;
-  //        int rc = lc + child.getMeasuredWidth();
-  //        int bc = tc + child.getMeasuredHeight();
-  //
-  //        child.layout(lc, tc, rc, bc);
-  //
-  //        left += child.getMeasuredWidth() + lp.rightMargin + lp.leftMargin;
-  //      }
-  //      left = 0;
-  //      top += lineHeight;
-  //    }
-  //  }
 
   @Override public LayoutParams generateLayoutParams(AttributeSet attrs) {
     return new MarginLayoutParams(getContext(), attrs);

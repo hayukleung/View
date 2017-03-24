@@ -31,4 +31,15 @@ class GroupingTag implements Serializable, Comparable<GroupingTag> {
   int getLength() {
     return null == content ? 0 : content.length();
   }
+
+  @Override public int hashCode() {
+    return this.content.hashCode();
+  }
+
+  @Override public boolean equals(Object obj) {
+    if (null == obj) return false;
+    if (!(obj instanceof GroupingTag)) return false;
+    if (!this.content.equals(((GroupingTag) obj).content)) return false;
+    return true;
+  }
 }

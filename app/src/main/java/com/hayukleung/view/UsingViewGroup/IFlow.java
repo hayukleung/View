@@ -11,10 +11,6 @@ package com.hayukleung.view.UsingViewGroup;
 
 public interface IFlow extends Comparable<IFlow> {
 
-  int getViewWidth();
-
-  void setViewWidth(int viewWidth);
-
   String getContent();
 
   int getLength();

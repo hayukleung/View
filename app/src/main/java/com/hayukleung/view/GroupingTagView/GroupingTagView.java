@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import com.hayukleung.utils.Screen;
 import com.hayukleung.view.R;
 import com.hayukleung.view.UsingViewGroup.FlowView;
@@ -28,7 +29,6 @@ public class GroupingTagView extends FlowView {
   private Paint mPaint;
   private int mTextSize;
   private RectF mRectF;
-  private int mViewWidth;
 
   public GroupingTagView(Context context) {
     super(context);
@@ -70,6 +70,14 @@ public class GroupingTagView extends FlowView {
     canvas.drawRoundRect(mRectF, getHeight() / 2, getHeight() / 2, mPaint);
   }
 
+  @Override protected void onAttachedToWindow() {
+    super.onAttachedToWindow();
+  }
+
+  @Override protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+  }
+
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
     int hSize = mTextSize + (int) (((float) mTextSize) * 0.2f);
@@ -78,8 +86,25 @@ public class GroupingTagView extends FlowView {
     setMeasuredDimension(wSizeMeasureSpec, hSizeMeasureSpec);
   }
 
+  @Override public String getContent() {
+    return (null == this.mGroupingTag || TextUtils.isEmpty(this.mGroupingTag.getContent())) ? "null"
+        : this.mGroupingTag.getContent();
+  }
+
+  @Override public int getLength() {
+    String content = getContent();
+    float textLength = mPaint.measureText(content);
+    Log.e(GroupingTagView.class.getSimpleName(),
+        "measureText --> " + hashCode() + " - " + textLength);
+    int after = (int) (textLength * 1.5f);
+    if (after - textLength > 30 || after - textLength < 20) {
+      after = (int) (textLength + 30f);
+    }
+    return after;
+  }
+
   @Override public int compareTo(@NonNull IFlow o) {
-    return getViewWidth() - o.getViewWidth();
+    return getLength() - o.getLength();
   }
 
   /**
@@ -88,26 +113,7 @@ public class GroupingTagView extends FlowView {
    * @param groupingTag
    */
   public void setGroupingTag(GroupingTag groupingTag) {
-    this.mGroupingTag = groupingTag;
+    this.mGroupingTag.setContent(groupingTag.getContent());
     invalidate();
-  }
-
-  public void setViewWidth(int viewWidth) {
-    mViewWidth = viewWidth;
-  }
-
-  @Override public int getViewWidth() {
-    return mViewWidth;
-  }
-
-  @Override public String getContent() {
-    return (null == this.mGroupingTag || TextUtils.isEmpty(this.mGroupingTag.getContent())) ? "null"
-        : this.mGroupingTag.getContent();
-  }
-
-  @Override public int getLength() {
-    float textLength = mPaint.measureText(getContent());
-    return (int) (textLength / (float) getContent().length() * ((float) getContent().length()
-        + 2f));
   }
 }
