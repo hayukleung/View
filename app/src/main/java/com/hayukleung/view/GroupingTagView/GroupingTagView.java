@@ -28,6 +28,7 @@ public class GroupingTagView extends FlowView {
   private GroupingTag mGroupingTag;
   private Paint mPaint;
   private int mTextSize;
+  private int mStrokeWidth;
   private RectF mRectF;
 
   public GroupingTagView(Context context) {
@@ -55,18 +56,24 @@ public class GroupingTagView extends FlowView {
     a.recycle();
 
     mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    mTextSize = Screen.getInstance(getContext()).sp2px(16);
+    mTextSize = Screen.getInstance(getContext()).sp2px(14);
+    mStrokeWidth = Screen.getInstance(getContext()).dp2px(2);
     mRectF = new RectF();
   }
 
   @Override protected void onDraw(Canvas canvas) {
+
+    mPaint.setColor(getResources().getColor(R.color.colorPrimary));
+
     mPaint.setStyle(Paint.Style.FILL);
     mPaint.setTextSize(mTextSize);
     mPaint.setTextAlign(Paint.Align.CENTER);
-    canvas.drawText(getContent(), getWidth() / 2, getHeight() / 10 * 9, mPaint);
+    canvas.drawText(getContent(), ((float) getWidth()) / 2f, ((float) getHeight()) / 10f * 7f,
+        mPaint);
 
     mPaint.setStyle(Paint.Style.STROKE);
-    mRectF.set(0, 0, getWidth(), getHeight());
+    mPaint.setStrokeWidth(mStrokeWidth);
+    mRectF.set(mStrokeWidth, mStrokeWidth, getWidth() - mStrokeWidth, getHeight() - mStrokeWidth);
     canvas.drawRoundRect(mRectF, getHeight() / 2, getHeight() / 2, mPaint);
   }
 
@@ -80,14 +87,15 @@ public class GroupingTagView extends FlowView {
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-    int hSize = mTextSize + (int) (((float) mTextSize) * 0.2f);
+    int hSize = (int) (((float) mTextSize) * 1.8f);
     int hSizeMeasureSpec = MeasureSpec.makeMeasureSpec(hSize, MeasureSpec.EXACTLY);
-    int wSizeMeasureSpec = MeasureSpec.makeMeasureSpec(getLength(), MeasureSpec.EXACTLY);
+    int wSize = Math.max(getLength(), hSize);
+    int wSizeMeasureSpec = MeasureSpec.makeMeasureSpec(wSize, MeasureSpec.EXACTLY);
     setMeasuredDimension(wSizeMeasureSpec, hSizeMeasureSpec);
   }
 
   @Override public String getContent() {
-    return (null == this.mGroupingTag || TextUtils.isEmpty(this.mGroupingTag.getContent())) ? "null"
+    return (null == this.mGroupingTag || TextUtils.isEmpty(this.mGroupingTag.getContent())) ? ""
         : this.mGroupingTag.getContent();
   }
 
@@ -97,8 +105,8 @@ public class GroupingTagView extends FlowView {
     Log.e(GroupingTagView.class.getSimpleName(),
         "measureText --> " + hashCode() + " - " + textLength);
     int after = (int) (textLength * 1.5f);
-    if (after - textLength > 30 || after - textLength < 20) {
-      after = (int) (textLength + 30f);
+    if (after - textLength > 40 || after - textLength < 20) {
+      after = (int) (textLength + 40f);
     }
     return after;
   }
