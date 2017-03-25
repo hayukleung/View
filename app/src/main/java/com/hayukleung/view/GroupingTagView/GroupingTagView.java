@@ -57,16 +57,19 @@ public class GroupingTagView extends FlowView {
 
     mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     mTextSize = Screen.getInstance(getContext()).sp2px(14);
+    // 字体大小必须在初始化时就确定好，不然后面步骤计算标签宽度时会得出不正确的大小
+    mPaint.setTextSize(mTextSize);
     mStrokeWidth = Screen.getInstance(getContext()).dp2px(2);
     mRectF = new RectF();
   }
 
   @Override protected void onDraw(Canvas canvas) {
 
-    mPaint.setColor(getResources().getColor(R.color.colorPrimary));
+    Log.e(GroupingTagView.class.getSimpleName(), "measureText --> " + hashCode() + " - onDraw");
+
+    mPaint.setColor(getResources().getColor(R.color.colorAccent));
 
     mPaint.setStyle(Paint.Style.FILL);
-    mPaint.setTextSize(mTextSize);
     mPaint.setTextAlign(Paint.Align.CENTER);
     canvas.drawText(getContent(), ((float) getWidth()) / 2f, ((float) getHeight()) / 10f * 7f,
         mPaint);
@@ -77,21 +80,35 @@ public class GroupingTagView extends FlowView {
     canvas.drawRoundRect(mRectF, getHeight() / 2, getHeight() / 2, mPaint);
   }
 
-  @Override protected void onAttachedToWindow() {
-    super.onAttachedToWindow();
+  @Override protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+    super.onLayout(changed, left, top, right, bottom);
+    Log.e(GroupingTagView.class.getSimpleName(), "measureText --> " + hashCode() + " - onLayout");
   }
 
-  @Override protected void onDetachedFromWindow() {
-    super.onDetachedFromWindow();
+  @Override protected void onDraw(Canvas canvas) {
+
+    Log.e(GroupingTagView.class.getSimpleName(), "measureText --> " + hashCode() + " - onDraw");
+
+    mPaint.setColor(getResources().getColor(R.color.colorAccent));
+
+    mPaint.setStyle(Paint.Style.FILL);
+    mPaint.setTextAlign(Paint.Align.CENTER);
+    canvas.drawText(getContent(), ((float) getWidth()) / 2f, ((float) getHeight()) / 10f * 7f,
+        mPaint);
+
+    mPaint.setStyle(Paint.Style.STROKE);
+    mPaint.setStrokeWidth(mStrokeWidth);
+    mRectF.set(mStrokeWidth, mStrokeWidth, getWidth() - mStrokeWidth, getHeight() - mStrokeWidth);
+    canvas.drawRoundRect(mRectF, getHeight() / 2, getHeight() / 2, mPaint);
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
     int hSize = (int) (((float) mTextSize) * 1.8f);
     int hSizeMeasureSpec = MeasureSpec.makeMeasureSpec(hSize, MeasureSpec.EXACTLY);
+    Log.e(GroupingTagView.class.getSimpleName(), "measureText --> " + hashCode() + " - onMeasure");
     int wSize = Math.max(getLength(), hSize);
     int wSizeMeasureSpec = MeasureSpec.makeMeasureSpec(wSize, MeasureSpec.EXACTLY);
-    setMeasuredDimension(wSizeMeasureSpec, hSizeMeasureSpec);
+    super.onMeasure(wSizeMeasureSpec, hSizeMeasureSpec);
   }
 
   @Override public String getContent() {
