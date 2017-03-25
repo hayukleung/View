@@ -12,7 +12,7 @@ import java.io.Serializable;
  * at 2017-03-22 15:44
  */
 
-class GroupingTag implements Serializable, Comparable<GroupingTag> {
+public class GroupingTag implements Serializable, Comparable<GroupingTag> {
 
   private String content;
 

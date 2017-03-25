@@ -2,6 +2,7 @@ package com.hayukleung.view.UsingViewGroup;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import com.hayukleung.view.BaseViewGroup;
 import java.util.ArrayList;
@@ -51,9 +52,11 @@ public class FlowLayout extends BaseViewGroup {
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+    Log.e("xx", "onMeasure");
     super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-    // 获得它的父容器为它设置的测量模式和大小
+    // 获得FlowLayout的父容器为它设置的测量模式和大小
     int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
     int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
     int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
@@ -76,36 +79,44 @@ public class FlowLayout extends BaseViewGroup {
       measureChild(child, widthMeasureSpec, heightMeasureSpec);
       // 得到child的lp
       MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-      // 当前子空间实际占据的宽度
+      // 当前child实际占据的宽度
       int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
-      // 当前子空间实际占据的高度
+      // 当前child实际占据的高度
       int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
 
-      // 如果加入当前child，则超出最大宽度，则得到目前最大宽度给width，累加height 然后开启新行
+      // 如果加入当前child超出FlowLayout最大宽度
+      // 则将最大宽度给width，累加height
+      // 然后开启新行
       if (lineWidth + childWidth > sizeWidth) {
-        width = Math.max(lineWidth, childWidth); // 取最大的
-        lineWidth = childWidth; // 重新开启新行，开始记录
-        // 叠加当前高度
+        width = Math.max(lineWidth, childWidth);
+        // 重新开启新行，开始记录
+        lineWidth = childWidth;
+        // 累加当前高度
         height += lineHeight;
         // 开启记录下一行的高度
         lineHeight = childHeight;
       } else
-      // 否则累加值lineWidth lineHeight取最大高度
+      // 否则
+      // 累加lineWidth
+      // lineHeight取最大高度
       {
         lineWidth += childWidth;
         lineHeight = Math.max(lineHeight, childHeight);
       }
-      // 如果是最后一个，则将当前记录的最大宽度和当前lineWidth做比较
+      // 如果是最后一个child
+      // 将当前记录的最大宽度和当前lineWidth做比较
       if (i == cCount - 1) {
         width = Math.max(width, lineWidth);
         height += lineHeight;
       }
     }
-    setMeasuredDimension((modeWidth == MeasureSpec.EXACTLY) ? sizeWidth : width,
-        (modeHeight == MeasureSpec.EXACTLY) ? sizeHeight : height);
+    setMeasuredDimension(
+        // ((modeWidth == MeasureSpec.EXACTLY) ? sizeWidth : width),
+        sizeWidth, ((modeHeight == MeasureSpec.EXACTLY) ? sizeHeight : height));
   }
 
   @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    Log.e("xx", "onLayout");
     mLineList.clear();
     mLineHeightList.clear();
 
@@ -115,6 +126,7 @@ public class FlowLayout extends BaseViewGroup {
     int lineHeight = 0;
     // 存储每一行所有的childView
     List<View> line = new ArrayList<>();
+
     int cCount = getChildCount();
     // 遍历所有的孩子
     for (int i = 0; i < cCount; i++) {
@@ -131,6 +143,7 @@ public class FlowLayout extends BaseViewGroup {
         mLineList.add(line);
         // 重置行宽
         lineWidth = 0;
+        lineHeight = 0;
         line = new ArrayList<>();
       }
       // 如果不需要换行，则累加

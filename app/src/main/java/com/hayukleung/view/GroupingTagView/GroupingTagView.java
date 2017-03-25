@@ -65,8 +65,6 @@ public class GroupingTagView extends FlowView {
 
   @Override protected void onDraw(Canvas canvas) {
 
-    Log.e(GroupingTagView.class.getSimpleName(), "measureText --> " + hashCode() + " - onDraw");
-
     mPaint.setColor(getResources().getColor(R.color.colorAccent));
 
     mPaint.setStyle(Paint.Style.FILL);
@@ -82,30 +80,11 @@ public class GroupingTagView extends FlowView {
 
   @Override protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
     super.onLayout(changed, left, top, right, bottom);
-    Log.e(GroupingTagView.class.getSimpleName(), "measureText --> " + hashCode() + " - onLayout");
-  }
-
-  @Override protected void onDraw(Canvas canvas) {
-
-    Log.e(GroupingTagView.class.getSimpleName(), "measureText --> " + hashCode() + " - onDraw");
-
-    mPaint.setColor(getResources().getColor(R.color.colorAccent));
-
-    mPaint.setStyle(Paint.Style.FILL);
-    mPaint.setTextAlign(Paint.Align.CENTER);
-    canvas.drawText(getContent(), ((float) getWidth()) / 2f, ((float) getHeight()) / 10f * 7f,
-        mPaint);
-
-    mPaint.setStyle(Paint.Style.STROKE);
-    mPaint.setStrokeWidth(mStrokeWidth);
-    mRectF.set(mStrokeWidth, mStrokeWidth, getWidth() - mStrokeWidth, getHeight() - mStrokeWidth);
-    canvas.drawRoundRect(mRectF, getHeight() / 2, getHeight() / 2, mPaint);
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     int hSize = (int) (((float) mTextSize) * 1.8f);
     int hSizeMeasureSpec = MeasureSpec.makeMeasureSpec(hSize, MeasureSpec.EXACTLY);
-    Log.e(GroupingTagView.class.getSimpleName(), "measureText --> " + hashCode() + " - onMeasure");
     int wSize = Math.max(getLength(), hSize);
     int wSizeMeasureSpec = MeasureSpec.makeMeasureSpec(wSize, MeasureSpec.EXACTLY);
     super.onMeasure(wSizeMeasureSpec, hSizeMeasureSpec);
