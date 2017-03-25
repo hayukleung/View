@@ -1,183 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--&gt;-->
+<com.hayukleung.view.UsingViewGroup.FlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="280dp"
-    android:layout_height="match_parent"
+    android:id="@+id/flow_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#333333"
+    android:paddingBottom="15dp"
+    android:paddingEnd="50dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="50dp"
+    android:paddingStart="25dp"
+    android:paddingTop="25dp"
     >
-  <com.hayukleung.view.UsingViewGroup.FlowLayout
-      android:id="@+id/flow_layout"
+
+  <!--
+    android:paddingLeft="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="25dp"
+    android:paddingBottom="15dp"
+  -->
+
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:id="@+id/add"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:background="#333333"
-      android:paddingBottom="15dp"
-      android:paddingEnd="20dp"
-      android:paddingLeft="10dp"
-      android:paddingRight="20dp"
-      android:paddingStart="10dp"
-      android:paddingTop="25dp"
-      >
+      android:layout_margin="4dp"
+      app:GTVContent="添加标签"
+      />
 
-    <!--
-      android:paddingLeft="10dp"
-      android:paddingStart="10dp"
-      android:paddingEnd="20dp"
-      android:paddingRight="20dp"
-      android:paddingTop="25dp"
-      android:paddingBottom="15dp"
-    -->
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="0123456789-----------------------------"
+      />
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="100dp"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="hello flow layout"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:id="@+id/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="添加标签"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="0123456789"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="0123456789-----------------------------"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="11"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="hello flow layout"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="************"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="0123456789"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="mac"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="11"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="iOS"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="************"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="Android"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="mac"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="just do it"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="iOS"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="哦"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="Android"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="hello flow layout"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="just do it"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="0123456789"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="哦"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="11"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="hello flow layout"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="************"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="0123456789"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="mac"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="11"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="iOS"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="************"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="Android"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="mac"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="just do it"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="iOS"
-        />
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="哦"
+      />
 
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="Android"
-        />
-
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="just do it"
-        />
-
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="哦"
-        />
-
-    <com.hayukleung.view.GroupingTagView.GroupingTagView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:GTVContent="hello flow layout"
-        />
-  </com.hayukleung.view.UsingViewGroup.FlowLayout>
-</FrameLayout>
+  <com.hayukleung.view.GroupingTagView.GroupingTagView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp"
+      app:GTVContent="hello flow layout"
+      />
+</com.hayukleung.view.UsingViewGroup.FlowLayout>
+    <!--</FrameLayout>-->

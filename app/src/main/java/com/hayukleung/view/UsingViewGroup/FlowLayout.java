@@ -1,6 +1,7 @@
 package com.hayukleung.view.UsingViewGroup;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -51,6 +52,80 @@ public class FlowLayout extends BaseViewGroup {
   protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
   }
 
+  @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    Log.e("xx", "onLayout");
+    mLineList.clear();
+    mLineHeightList.clear();
+
+    int width = getWidth();
+
+    int lineWidth = 0;
+    int lineHeight = 0;
+    // 存储每一行所有的childView
+    List<View> line = new ArrayList<>();
+
+    int cCount = getChildCount();
+    // 遍历所有的孩子
+    for (int i = 0; i < cCount; i++) {
+      View child = getChildAt(i);
+      MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
+      int childWidth = child.getMeasuredWidth();
+      int childHeight = child.getMeasuredHeight();
+
+      // 如果已经需要换行
+      if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth
+          > width - getPaddingLeft() - getPaddingRight()) {
+        // 记录这一行所有的View以及最大高度
+        mLineHeightList.add(lineHeight);
+        // 将当前行的childView保存，然后开启新的ArrayList保存下一行的childView
+        mLineList.add(line);
+        // 重置行宽
+        lineWidth = 0;
+        lineHeight = 0;
+        line = new ArrayList<>();
+      }
+      // 如果不需要换行，则累加
+      lineWidth += childWidth + lp.leftMargin + lp.rightMargin;
+      lineHeight = Math.max(lineHeight, childHeight + lp.topMargin + lp.bottomMargin);
+      line.add(child);
+    }
+    // 记录最后一行
+    mLineHeightList.add(lineHeight);
+    mLineList.add(line);
+
+    int left = getPaddingLeft();
+    int top = getPaddingTop();
+    // 得到总行数
+    int lineCount = mLineList.size();
+    for (int i = 0; i < lineCount; i++) {
+      // 每一行的所有的views
+      line = mLineList.get(i);
+      // 当前行的最大高度
+      lineHeight = mLineHeightList.get(i);
+
+      // 遍历当前行所有的View
+      for (int j = 0; j < line.size(); j++) {
+        View child = line.get(j);
+        if (child.getVisibility() == View.GONE) {
+          continue;
+        }
+        MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
+
+        // 计算childView的left top right bottom
+        int lc = left + lp.leftMargin;
+        int tc = top + lp.topMargin;
+        int rc = lc + child.getMeasuredWidth();
+        int bc = tc + child.getMeasuredHeight();
+
+        child.layout(lc, tc, rc, bc);
+
+        left += child.getMeasuredWidth() + lp.rightMargin + lp.leftMargin;
+      }
+      left = getPaddingLeft();
+      top += lineHeight;
+    }
+  }
+
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
     Log.e("xx", "onMeasure");
@@ -87,7 +162,7 @@ public class FlowLayout extends BaseViewGroup {
       // 如果加入当前child超出FlowLayout最大宽度
       // 则将最大宽度给width，累加height
       // 然后开启新行
-      if (lineWidth + childWidth > sizeWidth) {
+      if (lineWidth + childWidth > sizeWidth - getPaddingLeft() - getPaddingRight()) {
         width = Math.max(lineWidth, childWidth);
         // 重新开启新行，开始记录
         lineWidth = childWidth;
@@ -110,85 +185,35 @@ public class FlowLayout extends BaseViewGroup {
         height += lineHeight;
       }
     }
+
     setMeasuredDimension(
         // ((modeWidth == MeasureSpec.EXACTLY) ? sizeWidth : width),
-        sizeWidth, ((modeHeight == MeasureSpec.EXACTLY) ? sizeHeight : height));
-  }
-
-  @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
-    Log.e("xx", "onLayout");
-    mLineList.clear();
-    mLineHeightList.clear();
-
-    int width = getWidth();
-
-    int lineWidth = 0;
-    int lineHeight = 0;
-    // 存储每一行所有的childView
-    List<View> line = new ArrayList<>();
-
-    int cCount = getChildCount();
-    // 遍历所有的孩子
-    for (int i = 0; i < cCount; i++) {
-      View child = getChildAt(i);
-      MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-      int childWidth = child.getMeasuredWidth();
-      int childHeight = child.getMeasuredHeight();
-
-      // 如果已经需要换行
-      if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth > width) {
-        // 记录这一行所有的View以及最大高度
-        mLineHeightList.add(lineHeight);
-        // 将当前行的childView保存，然后开启新的ArrayList保存下一行的childView
-        mLineList.add(line);
-        // 重置行宽
-        lineWidth = 0;
-        lineHeight = 0;
-        line = new ArrayList<>();
-      }
-      // 如果不需要换行，则累加
-      lineWidth += childWidth + lp.leftMargin + lp.rightMargin;
-      lineHeight = Math.max(lineHeight, childHeight + lp.topMargin + lp.bottomMargin);
-      line.add(child);
-    }
-    // 记录最后一行
-    mLineHeightList.add(lineHeight);
-    mLineList.add(line);
-
-    int left = 0;
-    int top = 0;
-    // 得到总行数
-    int lineCount = mLineList.size();
-    for (int i = 0; i < lineCount; i++) {
-      // 每一行的所有的views
-      line = mLineList.get(i);
-      // 当前行的最大高度
-      lineHeight = mLineHeightList.get(i);
-
-      // 遍历当前行所有的View
-      for (int j = 0; j < line.size(); j++) {
-        View child = line.get(j);
-        if (child.getVisibility() == View.GONE) {
-          continue;
-        }
-        MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-
-        // 计算childView的left top right bottom
-        int lc = left + lp.leftMargin;
-        int tc = top + lp.topMargin;
-        int rc = lc + child.getMeasuredWidth();
-        int bc = tc + child.getMeasuredHeight();
-
-        child.layout(lc, tc, rc, bc);
-
-        left += child.getMeasuredWidth() + lp.rightMargin + lp.leftMargin;
-      }
-      left = 0;
-      top += lineHeight;
-    }
+        sizeWidth, ((modeHeight == MeasureSpec.EXACTLY) ? sizeHeight : height)
+            + getPaddingTop()
+            + getPaddingBottom());
   }
 
   @Override public LayoutParams generateLayoutParams(AttributeSet attrs) {
     return new MarginLayoutParams(getContext(), attrs);
   }
+
+  @Override public int getPaddingLeft() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+      return 0 == super.getPaddingStart() ? super.getPaddingLeft() : super.getPaddingStart();
+    } else {
+      return super.getPaddingLeft();
+    }
+  }
+
+  @Override public int getPaddingRight() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+      return 0 == super.getPaddingEnd() ? super.getPaddingRight() : super.getPaddingEnd();
+    } else {
+      return super.getPaddingRight();
+    }
+  }
+
+
+
+
 }
