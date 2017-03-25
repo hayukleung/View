@@ -18,6 +18,7 @@ import com.hayukleung.view.RadarInfiniteLoadingView.RadarInfiniteLoadingViewActi
 import com.hayukleung.view.ShyaringanView.ShyaringanViewActivity;
 import com.hayukleung.view.SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity;
 import com.hayukleung.view.StampView.StampViewActivity;
+import com.hayukleung.view.UsingViewGroup.AutoSizingFlowLayoutActivity;
 import com.hayukleung.view.UsingViewGroup.FlowLayoutActivity;
 import com.hayukleung.view.UsingViewGroup.UVGViewActivity;
 
@@ -93,6 +94,11 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("StampView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, StampViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("AutoSizingFlowLayout", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, AutoSizingFlowLayoutActivity.class));
       }
     }));
     addEntrance(new Entrance("FlowLayout", new View.OnClickListener() {

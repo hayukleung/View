@@ -19,143 +19,118 @@ import java.util.Random;
  */
 public class GroupingTest {
 
-  // GroupingTag 个数
+  // Tag 个数
   private static final int GROUPING_TAG_COUNT = 40;
 
   // 单行所能容纳的最大长度
-  private static final int MAX_LENGTH = 30;
+  private static final int MAX_LENGTH = 28;
 
   public static void main(String[] args) {
 
-    // 随机生成 GROUPING_TAG_COUNT 个 GroupingTag
-    List<GroupingTag> groupingTagList = new ArrayList<>(GROUPING_TAG_COUNT);
+    // 随机生成 GROUPING_TAG_COUNT 个 Tag
+    List<Tag> tagList = new ArrayList<>(GROUPING_TAG_COUNT);
 
     if (false) {
       for (int i = 0; i < GROUPING_TAG_COUNT; i++) {
-        GroupingTag groupingTag = new GroupingTag();
+        Tag tag = new Tag();
         // 1 - 8 随机数
         int length = new Random().nextInt(8) + 1;
         String content = "";
         for (int j = 0; j < length; j++) {
           content += "*";
         }
-        groupingTag.setContent(content);
-        groupingTagList.add(groupingTag);
+        tag.setContent(content);
+        tagList.add(tag);
       }
     } else {
+      Tag tag;
+      tag = new Tag();
+      tag.setContent("******");
+      tagList.add(tag);
 
-      GroupingTag groupingTag;
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("0123456789");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("***************");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("11");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("****");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("************");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("***");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("mac");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("*");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("iOS");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("************");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("Android");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("**");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("just do it");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("***");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("哦");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("*******");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("hello flow layout");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("*********");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("0123456789");
-      groupingTagList.add(groupingTag);
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("11");
-      groupingTagList.add(groupingTag);
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("************");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("**");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("mac");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("*******");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("iOS");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("***");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("Android");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("************");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("just do it");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("****");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("哦");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("*****");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("hello flow layout");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("****");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("0123456789");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("**********");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("11");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("*********");
+      tagList.add(tag);
 
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("************");
-      groupingTagList.add(groupingTag);
-
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("mac");
-      groupingTagList.add(groupingTag);
-
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("iOS");
-      groupingTagList.add(groupingTag);
-
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("Android");
-      groupingTagList.add(groupingTag);
-
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("just do it");
-      groupingTagList.add(groupingTag);
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("哦");
-      groupingTagList.add(groupingTag);
-      groupingTag = new GroupingTag();
-      groupingTag.setContent("hello flow layout");
-      groupingTagList.add(groupingTag);
+      tag = new Tag();
+      tag.setContent("****");
+      tagList.add(tag);
     }
     // 按长度从小到大排序
-    Collections.sort(groupingTagList);
+    Collections.sort(tagList);
 
-    // 计算所有 GroupingTag 的总长度
+    // 计算所有 Tag 的总长度
     int totalLength = 0;
-    for (GroupingTag groupingTag : groupingTagList) {
-      totalLength += groupingTag.getLength();
+    for (Tag tag : tagList) {
+      totalLength += tag.getLength();
     }
 
     // 计算行数，向上取整
@@ -164,9 +139,9 @@ public class GroupingTest {
     // 分组
     // 顺序 - 从小到大
     // 逆序 - 从大到小
-    List<GroupingLine> group = new ArrayList<>(lineCount);
+    List<ITagLine> group = new ArrayList<>(lineCount);
     for (int i = 0; i < lineCount; i++) {
-      group.add(new GroupingLine());
+      group.add(new ITagLine());
     }
 
     // 0 - 5 效果逐步提升
@@ -175,11 +150,11 @@ public class GroupingTest {
         // 等数分组 - 顺序分组
         do {
           for (int i = 0; i < lineCount; i++) {
-            if (0 < groupingTagList.size()) {
-              group.get(i).addGroupingTag(groupingTagList.remove(0));
+            if (0 < tagList.size()) {
+              group.get(i).addTag(tagList.remove(0));
             }
           }
-        } while (0 < groupingTagList.size());
+        } while (0 < tagList.size());
         break;
       }
       case 1: {
@@ -187,27 +162,27 @@ public class GroupingTest {
         int flag = 0;
         do {
           for (int i = 0; i < lineCount; i++) {
-            int size = groupingTagList.size();
+            int size = tagList.size();
             if (0 < size) {
-              group.get(i).addGroupingTag(groupingTagList.remove((0 == flag % 2) ? 0 : size - 1));
+              group.get(i).addTag(tagList.remove((0 == flag % 2) ? 0 : size - 1));
             }
           }
           flag++;
-        } while (0 < groupingTagList.size());
+        } while (0 < tagList.size());
         break;
       }
       case 2: {
         // 等数分组 - 根据所在行剩余容量顺序分组
         do {
           for (int i = 0; i < lineCount; i++) {
-            int size = groupingTagList.size();
+            int size = tagList.size();
             if (0 < size) {
-              group.get(i).addGroupingTag(groupingTagList.remove(0));
+              group.get(i).addTag(tagList.remove(0));
             }
           }
           Collections.sort(group);
           Collections.reverse(group);
-        } while (0 < groupingTagList.size());
+        } while (0 < tagList.size());
         break;
       }
       case 3: {
@@ -215,9 +190,9 @@ public class GroupingTest {
         int flag = 0;
         do {
           for (int i = 0; i < lineCount; i++) {
-            int size = groupingTagList.size();
+            int size = tagList.size();
             if (0 < size) {
-              group.get(i).addGroupingTag(groupingTagList.remove((0 == flag % 2) ? 0 : size - 1));
+              group.get(i).addTag(tagList.remove((0 == flag % 2) ? 0 : size - 1));
             }
           }
           Collections.sort(group);
@@ -229,30 +204,30 @@ public class GroupingTest {
             Collections.reverse(group);
           }
           flag++;
-        } while (0 < groupingTagList.size());
+        } while (0 < tagList.size());
         break;
       }
       case 4: {
         // 不等数分组 - 根据所在行剩余容量逆序分组
-        Collections.reverse(groupingTagList);
-        for (GroupingTag groupingTag : groupingTagList) {
-          group.get(0).addGroupingTag(groupingTag);
+        Collections.reverse(tagList);
+        for (Tag tag : tagList) {
+          group.get(0).addTag(tag);
           Collections.sort(group);
         }
         break;
       }
       case 5: {
         // 不等数分组 - 根据所在行剩余容量顺序逆序交替分组
-        Collections.reverse(groupingTagList);
+        Collections.reverse(tagList);
         int flag = 0;
         do {
-          int size = groupingTagList.size();
+          int size = tagList.size();
           if (0 < size) {
-            group.get(0).addGroupingTag(groupingTagList.remove((0 == flag % 2 ? 0 : size - 1)));
+            group.get(0).addTag(tagList.remove((0 == flag % 2 ? 0 : size - 1)));
             Collections.sort(group);
           }
           flag++;
-        } while (0 < groupingTagList.size());
+        } while (0 < tagList.size());
         break;
       }
     }

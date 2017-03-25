@@ -1,20 +1,22 @@
 package com.hayukleung.view.GroupingTagView;
 
 import android.support.annotation.NonNull;
-import java.io.Serializable;
 
 /**
  * View
  * com.hayukleung.view.GroupingTagView
- * GroupingTag.java
+ * Tag.java
  *
  * by hayukleung
  * at 2017-03-22 15:44
  */
 
-public class GroupingTag implements Serializable, Comparable<GroupingTag> {
+public class Tag implements ITag<Tag> {
 
   private String content;
+
+  public Tag() {
+  }
 
   public String getContent() {
     return content;
@@ -24,12 +26,16 @@ public class GroupingTag implements Serializable, Comparable<GroupingTag> {
     this.content = content;
   }
 
-  @Override public int compareTo(@NonNull GroupingTag o) {
-    return this.getLength() - o.getLength();
+  @Override public int getLength() {
+    return null == content ? 0 : content.length();
   }
 
-  int getLength() {
-    return null == content ? 0 : content.length();
+  @Override public int getWidthWithMargin() {
+    return getLength();
+  }
+
+  @Override public final int compareTo(@NonNull Tag o) {
+    return this.getWidthWithMargin() - o.getWidthWithMargin();
   }
 
   @Override public int hashCode() {
@@ -38,8 +44,8 @@ public class GroupingTag implements Serializable, Comparable<GroupingTag> {
 
   @Override public boolean equals(Object obj) {
     if (null == obj) return false;
-    if (!(obj instanceof GroupingTag)) return false;
-    if (!this.content.equals(((GroupingTag) obj).content)) return false;
+    if (!(obj instanceof Tag)) return false;
+    if (!this.content.equals(((Tag) obj).content)) return false;
     return true;
   }
 }

@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -23,7 +22,7 @@ import com.hayukleung.view.R;
 
 public class GroupingTagView extends TagView {
 
-  private GroupingTag mGroupingTag;
+  private Tag mTag;
   private Paint mPaint;
   private int mTextSize;
   private int mStrokeWidth;
@@ -49,15 +48,15 @@ public class GroupingTagView extends TagView {
   protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 
     TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.GroupingTagView);
-    mGroupingTag = new GroupingTag();
-    mGroupingTag.setContent(a.getString(R.styleable.GroupingTagView_GTVContent));
+    mTag = new Tag();
+    mTag.setContent(a.getString(R.styleable.GroupingTagView_GTVContent));
     a.recycle();
 
     mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     mTextSize = Screen.getInstance(getContext()).sp2px(14);
     // 字体大小必须在初始化时就确定好，不然后面步骤计算标签宽度时会得出不正确的大小
     mPaint.setTextSize(mTextSize);
-    mStrokeWidth = Screen.getInstance(getContext()).dp2px(2);
+    mStrokeWidth = Screen.getInstance(getContext()).dp2px(1);
     mRectF = new RectF();
   }
 
@@ -89,8 +88,8 @@ public class GroupingTagView extends TagView {
   }
 
   @Override public String getContent() {
-    return (null == this.mGroupingTag || TextUtils.isEmpty(this.mGroupingTag.getContent())) ? ""
-        : this.mGroupingTag.getContent();
+    return (null == this.mTag || TextUtils.isEmpty(this.mTag.getContent())) ? ""
+        : this.mTag.getContent();
   }
 
   @Override public int getLength() {
@@ -105,17 +104,13 @@ public class GroupingTagView extends TagView {
     return after;
   }
 
-  @Override public int compareTo(@NonNull ITag o) {
-    return getLength() - o.getLength();
-  }
-
   /**
    * 标签内容
    *
-   * @param groupingTag
+   * @param tag
    */
-  public void setGroupingTag(GroupingTag groupingTag) {
-    this.mGroupingTag.setContent(groupingTag.getContent());
+  public void setTag(Tag tag) {
+    this.mTag.setContent(tag.getContent());
     invalidate();
   }
 }

@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup.MarginLayoutParams;
-import com.hayukleung.view.GroupingTagView.GroupingTag;
 import com.hayukleung.view.GroupingTagView.GroupingTagView;
+import com.hayukleung.view.GroupingTagView.Tag;
 import com.hayukleung.view.R;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -30,9 +30,9 @@ public class FlowLayoutActivity extends AppCompatActivity {
     findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         GroupingTagView groupingTagView = new GroupingTagView(FlowLayoutActivity.this);
-        GroupingTag groupingTag = new GroupingTag();
-        groupingTag.setContent("new tag");
-        groupingTagView.setGroupingTag(groupingTag);
+        Tag tag = new Tag();
+        tag.setContent("new tag");
+        groupingTagView.setTag(tag);
         MarginLayoutParams marginLayoutParams = new MarginLayoutParams(WRAP_CONTENT, WRAP_CONTENT);
         flowLayout.addView(groupingTagView, marginLayoutParams);
       }

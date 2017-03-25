@@ -24,7 +24,7 @@ import java.util.List;
 public class GroupingTagViewActivity extends AppCompatActivity {
 
   private RecyclerView mRecyclerView;
-  private List<GroupingTag> mGroupingTagList = new ArrayList<>();
+  private List<Tag> mTagList = new ArrayList<>();
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -34,81 +34,81 @@ public class GroupingTagViewActivity extends AppCompatActivity {
     mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     mRecyclerView.setLayoutManager(
         new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
-    mRecyclerView.setAdapter(new GroupingTagViewAdapter(mGroupingTagList));
+    mRecyclerView.setAdapter(new GroupingTagViewAdapter(mTagList));
 
-    GroupingTag groupingTag;
+    Tag tag;
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("***");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("***");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("******");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("******");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("what are you 弄啥嘞？");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("what are you 弄啥嘞？");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("*");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("*");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("**");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("**");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("*****");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("*****");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("*****哈哈********");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("*****哈哈********");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("哦");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("哦");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("*纳尼*");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("*纳尼*");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("*****");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("*****");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("你好饭店~~~");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("你好饭店~~~");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("*");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("*");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("**");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("**");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("*****");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("*****");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("****");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("****");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("***");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("***");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("*****");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("*****");
+    mTagList.add(tag);
 
-    groupingTag = new GroupingTag();
-    groupingTag.setContent("***");
-    mGroupingTagList.add(groupingTag);
+    tag = new Tag();
+    tag.setContent("***");
+    mTagList.add(tag);
 
     mRecyclerView.getAdapter().notifyDataSetChanged();
 

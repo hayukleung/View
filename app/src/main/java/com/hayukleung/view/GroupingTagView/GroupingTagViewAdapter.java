@@ -18,10 +18,10 @@ import java.util.List;
 
 class GroupingTagViewAdapter extends RecyclerView.Adapter<GroupingTagViewAdapter.GTVHolder> {
 
-  private List<GroupingTag> mGroupingTagList;
+  private List<Tag> mTagList;
 
-  GroupingTagViewAdapter(List<GroupingTag> groupingTagList) {
-    mGroupingTagList = groupingTagList;
+  GroupingTagViewAdapter(List<Tag> tagList) {
+    mTagList = tagList;
   }
 
   @Override public GTVHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,11 +30,11 @@ class GroupingTagViewAdapter extends RecyclerView.Adapter<GroupingTagViewAdapter
   }
 
   @Override public void onBindViewHolder(GTVHolder holder, int position) {
-    holder.gtv.setGroupingTag(mGroupingTagList.get(position));
+    holder.gtv.setTag(mTagList.get(position));
   }
 
   @Override public int getItemCount() {
-    return null == mGroupingTagList ? 0 : mGroupingTagList.size();
+    return null == mTagList ? 0 : mTagList.size();
   }
 
   static class GTVHolder extends RecyclerView.ViewHolder {
