@@ -1,15 +1,15 @@
-package com.hayukleung.view.UsingViewGroup;
+package com.hayukleung.view.GroupingTagView;
 
 /**
  * View
  * com.hayukleung.view.UsingViewGroup
- * IFlow.java
+ * ITag.java
  *
  * by hayukleung
  * at 2017-03-23 16:49
  */
 
-public interface IFlow extends Comparable<IFlow> {
+public interface ITag extends Comparable<ITag> {
 
   String getContent();
 

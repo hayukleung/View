@@ -11,8 +11,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import com.hayukleung.utils.Screen;
 import com.hayukleung.view.R;
-import com.hayukleung.view.UsingViewGroup.FlowView;
-import com.hayukleung.view.UsingViewGroup.IFlow;
 
 /**
  * View
@@ -23,7 +21,7 @@ import com.hayukleung.view.UsingViewGroup.IFlow;
  * at 2017-03-23 09:12
  */
 
-public class GroupingTagView extends FlowView {
+public class GroupingTagView extends TagView {
 
   private GroupingTag mGroupingTag;
   private Paint mPaint;
@@ -107,7 +105,7 @@ public class GroupingTagView extends FlowView {
     return after;
   }
 
-  @Override public int compareTo(@NonNull IFlow o) {
+  @Override public int compareTo(@NonNull ITag o) {
     return getLength() - o.getLength();
   }
 

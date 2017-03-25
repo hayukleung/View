@@ -3,7 +3,7 @@ package com.hayukleung.view.GroupingTagView;
 /**
  * View
  * com.hayukleung.view.GroupingTagView
- * GroupingViewTest.java
+ * GroupingTest.java
  *
  * by hayukleung
  * at 2017-03-22 15:46
@@ -17,7 +17,7 @@ import java.util.Random;
 /**
  * 纯算法测试
  */
-public class GroupingViewTest {
+public class GroupingTest {
 
   // GroupingTag 个数
   private static final int GROUPING_TAG_COUNT = 40;

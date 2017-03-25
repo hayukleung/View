@@ -3,7 +3,6 @@ package com.hayukleung.view.UsingViewGroup;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import com.hayukleung.view.BaseViewGroup;
 import java.util.ArrayList;
@@ -53,7 +52,6 @@ public class FlowLayout extends BaseViewGroup {
   }
 
   @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
-    Log.e("xx", "onLayout");
     mLineList.clear();
     mLineHeightList.clear();
 
@@ -126,9 +124,28 @@ public class FlowLayout extends BaseViewGroup {
     }
   }
 
+  @Override public LayoutParams generateLayoutParams(AttributeSet attrs) {
+    return new MarginLayoutParams(getContext(), attrs);
+  }
+
+  @Override public int getPaddingLeft() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+      return 0 == super.getPaddingStart() ? super.getPaddingLeft() : super.getPaddingStart();
+    } else {
+      return super.getPaddingLeft();
+    }
+  }
+
+  @Override public int getPaddingRight() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+      return 0 == super.getPaddingEnd() ? super.getPaddingRight() : super.getPaddingEnd();
+    } else {
+      return super.getPaddingRight();
+    }
+  }
+
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-    Log.e("xx", "onMeasure");
     super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
     // 获得FlowLayout的父容器为它设置的测量模式和大小
@@ -192,28 +209,4 @@ public class FlowLayout extends BaseViewGroup {
             + getPaddingTop()
             + getPaddingBottom());
   }
-
-  @Override public LayoutParams generateLayoutParams(AttributeSet attrs) {
-    return new MarginLayoutParams(getContext(), attrs);
-  }
-
-  @Override public int getPaddingLeft() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      return 0 == super.getPaddingStart() ? super.getPaddingLeft() : super.getPaddingStart();
-    } else {
-      return super.getPaddingLeft();
-    }
-  }
-
-  @Override public int getPaddingRight() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      return 0 == super.getPaddingEnd() ? super.getPaddingRight() : super.getPaddingEnd();
-    } else {
-      return super.getPaddingRight();
-    }
-  }
-
-
-
-
 }
