@@ -31,6 +31,12 @@ public class FlowLayout extends BaseViewGroup {
    */
   private List<Integer> mLineHeightList = new ArrayList<>();
 
+  private List<View> mTemp = new ArrayList<>();
+  /**
+   * 每一行的剩余间隙
+   */
+  private List<Integer> mGapList = new ArrayList<>();
+
   public FlowLayout(Context context) {
     super(context);
   }
@@ -54,6 +60,7 @@ public class FlowLayout extends BaseViewGroup {
   @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
     mLineList.clear();
     mLineHeightList.clear();
+    mGapList.clear();
 
     int width = getWidth();
 
@@ -63,9 +70,13 @@ public class FlowLayout extends BaseViewGroup {
     List<View> line = new ArrayList<>();
 
     int cCount = getChildCount();
+
     // 遍历所有的孩子
     for (int i = 0; i < cCount; i++) {
       View child = getChildAt(i);
+      if (View.GONE == child.getVisibility()) {
+        continue;
+      }
       MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
       int childWidth = child.getMeasuredWidth();
       int childHeight = child.getMeasuredHeight();
@@ -73,6 +84,8 @@ public class FlowLayout extends BaseViewGroup {
       // 如果已经需要换行
       if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth
           > width - getPaddingLeft() - getPaddingRight()) {
+
+        mGapList.add(width - getPaddingLeft() - getPaddingRight() - lineWidth);
         // 记录这一行所有的View以及最大高度
         mLineHeightList.add(lineHeight);
         // 将当前行的childView保存，然后开启新的ArrayList保存下一行的childView
@@ -90,6 +103,7 @@ public class FlowLayout extends BaseViewGroup {
     // 记录最后一行
     mLineHeightList.add(lineHeight);
     mLineList.add(line);
+    mGapList.add(width - getPaddingLeft() - getPaddingRight() - lineWidth);
 
     int left = getPaddingLeft();
     int top = getPaddingTop();
@@ -100,6 +114,17 @@ public class FlowLayout extends BaseViewGroup {
       line = mLineList.get(i);
       // 当前行的最大高度
       lineHeight = mLineHeightList.get(i);
+
+      mTemp.clear();
+      mTemp.addAll(line);
+      for (int j = 0; j < line.size(); j++) {
+        View child = line.get(j);
+        if (View.GONE == child.getVisibility()) {
+          mTemp.remove(child);
+        }
+      }
+
+      int gap = 1 < mTemp.size() ? mGapList.get(i) / (mTemp.size() - 1) : 0;
 
       // 遍历当前行所有的View
       for (int j = 0; j < line.size(); j++) {
@@ -116,8 +141,7 @@ public class FlowLayout extends BaseViewGroup {
         int bc = tc + child.getMeasuredHeight();
 
         child.layout(lc, tc, rc, bc);
-
-        left += child.getMeasuredWidth() + lp.rightMargin + lp.leftMargin;
+        left += child.getMeasuredWidth() + lp.rightMargin + lp.leftMargin + gap;
       }
       left = getPaddingLeft();
       top += lineHeight;
@@ -151,7 +175,7 @@ public class FlowLayout extends BaseViewGroup {
     // 获得FlowLayout的父容器为它设置的测量模式和大小
     int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
     int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
-    int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
+    // int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
     int modeHeight = MeasureSpec.getMode(heightMeasureSpec);
 
     // 如果是wrap_content情况下，记录宽和高
@@ -167,6 +191,15 @@ public class FlowLayout extends BaseViewGroup {
     // 遍历每个子元素
     for (int i = 0; i < cCount; i++) {
       View child = getChildAt(i);
+      if (View.GONE == child.getVisibility()) {
+        // 如果是最后一个child
+        // 将当前记录的最大宽度和当前lineWidth做比较
+        if (i == cCount - 1) {
+          width = Math.max(width, lineWidth);
+          height += lineHeight;
+        }
+        continue;
+      }
       // 测量每一个child的宽和高
       measureChild(child, widthMeasureSpec, heightMeasureSpec);
       // 得到child的lp

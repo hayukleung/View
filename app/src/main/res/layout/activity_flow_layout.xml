@@ -23,23 +23,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:visibility="visible"
         app:GTVContent="添加标签"
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:visibility="visible"
         app:GTVContent="0123456789-----------------------------"
         />
 
     <ImageView
+        android:id="@+id/id02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -47,6 +52,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id04"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -54,6 +60,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id05"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -61,6 +68,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id06"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -68,6 +76,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id07"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -75,6 +84,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id08"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -82,6 +92,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id09"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -89,33 +100,42 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:visibility="visible"
         app:GTVContent="just do it"
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:visibility="visible"
         app:GTVContent="哦"
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:visibility="visible"
         app:GTVContent="hello flow layout"
         />
 
     <com.hayukleung.view.ShyaringanView.ShyaringanView
+        android:id="@+id/id13"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="4dp"
+        android:visibility="visible"
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -123,6 +143,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -130,6 +151,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -137,6 +159,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -144,6 +167,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -151,6 +175,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -158,6 +183,7 @@
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -165,28 +191,34 @@
         />
 
     <ImageView
+        android:id="@+id/id21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
         />
 
     <ImageView
+        android:id="@+id/id22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
         />
 
     <com.hayukleung.view.GroupingTagView.GroupingTagView
+        android:id="@+id/id23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:visibility="visible"
         app:GTVContent="hello flow layout"
         />
 
     <ImageView
+        android:id="@+id/id24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
+        android:visibility="visible"
         />
   </com.hayukleung.view.UsingViewGroup.FlowLayout>
 </ScrollView>
