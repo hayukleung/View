@@ -1,6 +1,8 @@
 package com.hayukleung.view.CollapsibleView;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v7.util.DiffUtil;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ public class CollapsibleAdapter extends CollapsibleAbstractAdapter<Element, Coll
 
   /** 每一级的缩进量 */
   private final int mIndentBase;
+  private final List<Element> mTempElements = new ArrayList<>();
   private OnCollapsibleClickListener mOnCollapsibleClickListener;
   private LayoutInflater mLayoutInflater;
   /** resource ids */
@@ -70,8 +73,8 @@ public class CollapsibleAdapter extends CollapsibleAbstractAdapter<Element, Coll
         mLayoutInflater.inflate(R.layout.item_collapsible_view, viewGroup, false));
   }
 
-  @Override public void onBindViewHolder(CollapsibleViewHolder holder, final int position) {
-    final Element element = mVisibleElements.get(position);
+  @Override public void onBindViewHolder(final CollapsibleViewHolder holder, int position) {
+    final Element element = mVisibleElements.get(holder.getAdapterPosition());
 
     holder.txtName.setText(element.getName());
 
@@ -99,13 +102,22 @@ public class CollapsibleAdapter extends CollapsibleAbstractAdapter<Element, Coll
 
         @Override public void onClick(View view) {
           if (null != mOnCollapsibleClickListener) {
-            if (mOnCollapsibleClickListener.onOrgClick(element, position)) {
+            if (mOnCollapsibleClickListener.onOrgClick(element, holder.getAdapterPosition())) {
               // 锁定本次点击
             } else {
               // 额外执行toggle
               // mTreeViewAdapter.toggle(element, position);
-              toggleRecursively(element, position);
-              notifyDataSetChanged();
+
+              mTempElements.clear();
+              // 下面一步操作会导致两个列表内的元素内容同时发生变更，所以 diffutil 无法判别内容是否发生变更
+              // 暂时实现 diffutil callback areContentsTheSame return false; 这样 diffutil 针对每个元素都认为内容发生了变更
+              mTempElements.addAll(mVisibleElements);
+              toggleRecursively(element, holder.getAdapterPosition());
+              DiffUtil.DiffResult diffResult =
+                  DiffUtil.calculateDiff(new DiffUtilCallback(mTempElements, mVisibleElements));
+
+              diffResult.dispatchUpdatesTo(CollapsibleAdapter.this);
+              // notifyDataSetChanged();
             }
           }
         }
@@ -120,7 +132,7 @@ public class CollapsibleAdapter extends CollapsibleAbstractAdapter<Element, Coll
         @Override public void onClick(View view) {
 
           if (null != mOnCollapsibleClickListener) {
-            mOnCollapsibleClickListener.onUsrClick(element, position);
+            mOnCollapsibleClickListener.onUsrClick(element, holder.getAdapterPosition());
           }
         }
       });
@@ -129,6 +141,20 @@ public class CollapsibleAdapter extends CollapsibleAbstractAdapter<Element, Coll
     int level = element.getLevel();
     holder.rlItem.setPadding(mIndentBase * level, holder.rlItem.getPaddingTop(),
         holder.rlItem.getPaddingRight(), holder.rlItem.getPaddingBottom());
+  }
+
+  @Override
+  public void onBindViewHolder(CollapsibleViewHolder holder, int position, List<Object> payloads) {
+
+    if (null != payloads && 0 < payloads.size()) {
+      mVisibleElements.get(holder.getAdapterPosition())
+          .setName(((Bundle) payloads.get(0)).getString("name"));
+      if (1 < payloads.size()) {
+        mVisibleElements.get(holder.getAdapterPosition())
+            .setExpanded(((Bundle) payloads.get(1)).getBoolean("expanded"));
+      }
+    }
+    onBindViewHolder(holder, position);
   }
 
   @Override public long getItemId(int position) {
@@ -146,7 +172,7 @@ public class CollapsibleAdapter extends CollapsibleAbstractAdapter<Element, Coll
     for (Element element1 : mAllElements) {
       temp.remove(element1);
       for (Element element2 : temp) {
-        if (element2.getParentId() == element1.getId()) {
+        if (element2.getParentId().equals(element1.getId())) {
           element1.addChild(element2);
         }
       }
@@ -208,7 +234,7 @@ public class CollapsibleAdapter extends CollapsibleAbstractAdapter<Element, Coll
     // 闭合操作
     element.setExpanded(false);
     // 删除节点内部对应子节点数据，包括子节点的子节点
-    ArrayList<IElement> elementsToDel = new ArrayList<IElement>();
+    ArrayList<IElement> elementsToDel = new ArrayList<>();
     // 从position+1开始进行遍历
     for (int i = position + 1; i < mVisibleElements.size(); i++) {
       if (element.getLevel() >= mVisibleElements.get(i).getLevel()) break;

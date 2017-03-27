@@ -278,16 +278,8 @@ public class Element implements IElement, Comparable<IElement> {
     }
   }
 
-  @Override public boolean equals(Object o) {
-    if (null == o || !(o instanceof IElement)) {
-      return false;
-    }
-    // 由类型及ID唯一确定Element对象
-    return this.id.equals(((IElement) o).getId()) && this.type == ((IElement) o).getType();
-  }
-
   @Override public int compareTo(IElement another) {
-    int result = 0;
+    int result;
     result = this.type.compareTo(another.getType());
     if (0 == result) {
       result = this.priority.compareTo(another.getPriority());
@@ -296,6 +288,18 @@ public class Element implements IElement, Comparable<IElement> {
       }
     }
     return result;
+  }
+
+  @Override public int hashCode() {
+    return this.id.hashCode() * 10 + this.type;
+  }
+
+  @Override public boolean equals(Object o) {
+    if (null == o || !(o instanceof IElement)) {
+      return false;
+    }
+    // 由类型及ID唯一确定Element对象
+    return this.id.equals(((IElement) o).getId()) && this.type == ((IElement) o).getType();
   }
 
   @Override public int describeContents() {

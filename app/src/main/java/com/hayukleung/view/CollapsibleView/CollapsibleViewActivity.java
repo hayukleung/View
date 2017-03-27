@@ -14,6 +14,7 @@ public class CollapsibleViewActivity extends AppCompatActivity {
   private CollapsibleView mCollapsibleView;
   private ArrayList<Element> mAllElements = new ArrayList<>();
   private ArrayList<Element> mVisibleElements = new ArrayList<>();
+  private ArrayList<Element> mTempElements = new ArrayList<>();
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -425,7 +426,6 @@ public class CollapsibleViewActivity extends AppCompatActivity {
 
     // 市区 ======================================================
 
-    // 下面三行代码按顺序照抄
     mCollapsibleView.buildTree().sortTree().notifyDataSetChanged();
   }
 
