@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- 组织未点击 -->
+  <color name="tree_org_off">#E2E2E2</color>
+  <!-- 组织点击 -->
+  <color name="tree_org_on">#D2D2D2</color>
+  <!-- 成员未点击 -->
+  <color name="tree_usr_off">#EAEAEA</color>
+  <!-- 成员点击 -->
+  <color name="tree_usr_on">#DADADA</color>
+</resources>

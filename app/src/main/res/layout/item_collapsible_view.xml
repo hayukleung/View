@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ItemCollapsible$rl_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/collapsible_view_org"
+    >
+
+  <ImageView
+      android:id="@+id/ItemCollapsible$img_toggle"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
+      android:layout_centerVertical="true"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:contentDescription="@string/app_name"
+      android:scaleType="centerInside"
+      />
+
+  <TextView
+      android:id="@+id/ItemCollapsible$txt_name"
+      android:layout_width="wrap_content"
+      android:layout_height="20dp"
+      android:layout_centerVertical="true"
+      android:layout_toEndOf="@id/ItemCollapsible$img_toggle"
+      android:layout_toRightOf="@id/ItemCollapsible$img_toggle"
+      android:gravity="center_vertical"
+      android:textSize="17sp"
+      android:textStyle="bold"
+      />
+
+</RelativeLayout>

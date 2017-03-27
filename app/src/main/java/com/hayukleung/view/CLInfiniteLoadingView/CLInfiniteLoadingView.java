@@ -63,9 +63,11 @@ public class CLInfiniteLoadingView extends BaseView {
 
     BitmapFactory.Options options = new BitmapFactory.Options();
     options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-    mBgBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_loading_path, options);
+    mBgBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cl_infinite_loading_view_bg,
+        options);
     mLightingBitmap =
-        BitmapFactory.decodeResource(getResources(), R.drawable.ic_loading_lightning, options);
+        BitmapFactory.decodeResource(getResources(), R.drawable.cl_infinite_loading_view_src,
+            options);
 
     mXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP);
   }

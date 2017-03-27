@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="CollapsibleView">
+    <!-- collapsible -->
+    <attr format="reference" name="drawableOrg">@drawable/selector_tree_org</attr>
+    <attr format="reference" name="drawableUsr">@drawable/selector_tree_usr</attr>
+    <attr format="reference" name="drawableClosed">@drawable/ic_expand_more_white_24dp</attr>
+    <attr format="reference" name="drawableOpened">@drawable/ic_expand_less_white_24dp</attr>
+  </declare-styleable>
+</resources>

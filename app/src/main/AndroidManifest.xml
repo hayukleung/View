@@ -42,6 +42,9 @@
         android:name=".CLInfiniteLoadingView.CLInfiniteLoadingViewActivity"
         android:label="CLInfiniteLoadingView"/>
     <activity
+        android:name=".CollapsibleView.CollapsibleViewActivity"
+        android:label="CollapsibleView"/>
+    <activity
         android:name=".GroupingTagView.GroupingTagViewActivity"
         android:label="GroupingTagView"/>
     <activity
