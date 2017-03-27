@@ -10,6 +10,7 @@ import com.hayukleung.view.BezierCurveView.BezierCurveViewActivity;
 import com.hayukleung.view.BezierCurveView.BezierInfiniteLoadingViewActivity;
 import com.hayukleung.view.CLInfiniteLoadingView.CLInfiniteLoadingViewActivity;
 import com.hayukleung.view.CollapsibleView.CollapsibleViewActivity;
+import com.hayukleung.view.CollapsibleView.UsingCollapsibleView.UsingCollapsibleViewActivity;
 import com.hayukleung.view.GroupingTagView.GroupingTagViewActivity;
 import com.hayukleung.view.HandleView.HandleViewActivity;
 import com.hayukleung.view.IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity;
@@ -55,6 +56,11 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("CollapsibleView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, CollapsibleViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("UsingCollapsibleView", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, UsingCollapsibleViewActivity.class));
       }
     }));
     addEntrance(new Entrance("GroupingTagView", new View.OnClickListener() {
