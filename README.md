@@ -24,7 +24,49 @@
 ![CLInfiniteLoadingView](./img/CLInfiniteLoadingView.gif)
 - Xfermode ATOP
 
+### **CollapsibleView**
+- base on RecyclerView
+
 ### GroupingTagView
+标签
+
+### **HandleView**
+![HandleView](./img/HandleView.gif)
+
+![Android坐标](./img/Coordinator.png)
+
+- OnTouchListener
+
+### IQiYiInfiniteLoadingView
+![IQiYiInfiniteLoadingView](./img/IQiYiInfiniteLoadingView.gif)
+- canvas.save
+- canvas.restore
+
+### MDLikeLinkTextView
+also see [LinkString](https://gist.github.com/hayukleung/91e6ff978523c736a711f49524709b7a)
+- Regex
+- Pattern
+
+### PatternView
+
+### **ShyaringanView**
+![ShyaringanView](./img/ShyaringanView.gif)
+- canvas.save
+- canvas.restore
+
+### SonarInfiniteLoadingView
+![SonarInfiniteLoadingView](./img/SonarInfiniteLoadingView.gif)
+
+### RadarInfiniteLoadingView
+![RadarInfiniteLoadingView](./img/RadarInfiniteLoadingView.gif)
+
+### StampView
+![StampView](./img/StampView.jpg)
+- Xfermode
+
+### ViewGroup
+#### AutoSizingFlowLayout
+
 标签分组算法
 
 - 等数分组 - 顺序分组
@@ -90,38 +132,10 @@
  ******** * ** ** *** *** *** ***** **** 
 ```
 
-### HandleView
-![HandleView](./img/HandleView.gif)
+#### **FlowLayout**
 
-![Android坐标](./img/Coordinator.png)
-
-- OnTouchListener
-
-### IQiYiInfiniteLoadingView
-![IQiYiInfiniteLoadingView](./img/IQiYiInfiniteLoadingView.gif)
-- canvas.save
-- canvas.restore
-
-### MDLikeLinkTextView
-- Regex
-- Pattern
-
-### PatternView
-
-### ShyaringanView
-![ShyaringanView](./img/ShyaringanView.gif)
-- canvas.save
-- canvas.restore
-
-### SonarInfiniteLoadingView
-![SonarInfiniteLoadingView](./img/SonarInfiniteLoadingView.gif)
-
-### RadarInfiniteLoadingView
-![RadarInfiniteLoadingView](./img/RadarInfiniteLoadingView.gif)
-
-### StampView
-![StampView](./img/StampView.jpg)
-- Xfermode
+#### UVGView
+show how to extend a ViewGroup
 
 ## Xfermode示例
 
