@@ -28,6 +28,8 @@ dependencies {
   compile 'com.google.code.gson:gson:2.8.0'
   compile 'de.greenrobot:java-common:2.3.1'
 
+  compile 'com.github.hayukleung:collapsible-view:1.0.1'
+
   compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
   compile "io.reactivex:rxjava:${RXJAVA_VERSION}"
   compile "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"

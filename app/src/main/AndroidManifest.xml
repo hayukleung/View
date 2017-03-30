@@ -42,9 +42,9 @@
     <activity
         android:name=".CLInfiniteLoadingView.CLInfiniteLoadingViewActivity"
         android:label="CLInfiniteLoadingView"/>
-    <activity
-        android:name=".CollapsibleView.CollapsibleViewActivity"
-        android:label="CollapsibleView"/>
+    <!--<activity-->
+    <!--android:name=".CollapsibleView.CollapsibleViewActivity"-->
+    <!--android:label="CollapsibleView"/>-->
     <activity
         android:name=".CollapsibleView.UsingCollapsibleView.UsingCollapsibleViewActivity"
         android:label="UsingCollapsibleView"/>
