@@ -2,6 +2,21 @@
 
 > [欢迎关注我的简书博客](http://www.jianshu.com/users/2471a8f0e7a5/latest_articles)
 
+引用[鸿洋的博客](http://blog.csdn.net/lmj623565791/article/details/38171465)一段文字
+> 如果大家对自定义ViewGroup和自定义View有一定的掌握，肯定不会对onMeasure方法陌生：
+> ViewGroup的onMeasure方法所做的是：
+> childView设置测量模式和测量出来的值。
+> 如何设置呢？就是根据LayoutParams。
+> 如果childView的宽为：LayoutParams. MATCH_PARENT，则设置模式为MeasureSpec.EXACTLY，且为childView计算宽度。
+> 如果childView的宽为：固定值（即大于0），则设置模式为MeasureSpec.EXACTLY，且将lp.width直接作为childView的宽度。
+> 如果childView的宽为：LayoutParams. WRAP_CONTENT，则设置模式为：MeasureSpec.AT_MOST
+> 高度与宽度类似。
+> View的onMeasure方法：
+> 主要做的就是根据ViewGroup传入的测量模式和测量值，计算自己应该的宽和高：
+> 一般是这样的流程：
+> 如果宽的模式是AT_MOST：则自己计算宽的值。
+> 如果宽的模式是EXACTLY：则直接使用MeasureSpec.getSize(widthMeasureSpec);
+
 ## UsingView
 
 ### AppbarLayout
