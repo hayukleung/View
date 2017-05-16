@@ -1,5 +1,6 @@
 package com.hayukleung.view.ShyaringanView;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -9,20 +10,16 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.view.animation.RotateAnimation;
 import com.hayukleung.view.BaseView;
 
 /**
- * View
- * com.hayukleung.view.ShyaringanView
- * ShyaringanView.java
- *
- * by hayukleung
- * at 2017-01-24 09:53
+ * 写轮眼
  */
-
 public class ShyaringanView extends BaseView {
 
   private static final int GOGOK_COUNT = 3;
+  private static final int DELTA_ANGLE = 6;
 
   /** 写轮眼背景 */
   private Paint mPaintBackground;
@@ -33,12 +30,21 @@ public class ShyaringanView extends BaseView {
 
   private RectF mRectFGogok;
   private Path mPathGogok;
-  private int mAngle = -6;
+  private int mAngle = -DELTA_ANGLE;
 
   private Canvas mCanvasBuffer;
   private Bitmap mBitmapBufferBackground;
   private Bitmap mBitmapBufferGogok;
   private Matrix mMatrix;
+
+  private ValueAnimator.AnimatorUpdateListener mAnimatorUpdateListener =
+      new ValueAnimator.AnimatorUpdateListener() {
+        @Override public void onAnimationUpdate(ValueAnimator animation) {
+          setRotation((Float) animation.getAnimatedValue());
+        }
+      };
+
+  private RotateAnimation mRotateAnimation;
 
   public ShyaringanView(Context context) {
     super(context);
@@ -69,6 +75,7 @@ public class ShyaringanView extends BaseView {
     if (null == mBitmapBufferBackground) {
       bufferBackground();
     }
+
     if (null == mBitmapBufferGogok) {
       bufferGogok();
     }
@@ -85,7 +92,24 @@ public class ShyaringanView extends BaseView {
     mMatrix.postRotate(getAngle(), getWidth() / 2, getHeight() / 2);
     canvas.drawBitmap(mBitmapBufferGogok, mMatrix, mPaintBitmap);
 
-    postInvalidateDelayed(30);
+    // 1. 视图动画方式旋转
+    // if (null == mRotateAnimation) {
+    // mRotateAnimation = new RotateAnimation(0, 360, getWidth() / 2, getHeight() / 2);
+    // }
+    // mRotateAnimation.setDuration(3000);
+    // mRotateAnimation.setRepeatMode(Animation.RESTART);
+    // mRotateAnimation.setRepeatCount(-1);
+    // startAnimation(mRotateAnimation);
+
+    // 2. 属性动画方式旋转
+    // ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 720).setDuration(6000);
+    // valueAnimator.setRepeatCount(-1);
+    // valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+    // valueAnimator.addUpdateListener(mAnimatorUpdateListener);
+    // valueAnimator.start();
+
+    // 3. 定时重绘方式旋转
+    postInvalidateDelayed(15);
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -101,7 +125,8 @@ public class ShyaringanView extends BaseView {
    */
   private void bufferBackground() {
     if (null == mBitmapBufferBackground) {
-      mBitmapBufferBackground = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.RGB_565);
+      mBitmapBufferBackground =
+          Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_4444);
       mCanvasBuffer = new Canvas(mBitmapBufferBackground);
     }
     drawShyaringanBackground(mCanvasBuffer);
@@ -112,14 +137,14 @@ public class ShyaringanView extends BaseView {
    */
   private void bufferGogok() {
     if (null == mBitmapBufferGogok) {
-      mBitmapBufferGogok = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.RGB_565);
+      mBitmapBufferGogok = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_4444);
       mCanvasBuffer = new Canvas(mBitmapBufferGogok);
     }
     drawShyaringanGogok(mCanvasBuffer);
   }
 
   private int getAngle() {
-    mAngle += 6;
+    mAngle += DELTA_ANGLE;
     mAngle %= 360;
     return mAngle;
   }
