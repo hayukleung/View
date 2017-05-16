@@ -23,7 +23,7 @@ public class GroupingTest {
   private static final int GROUPING_TAG_COUNT = 40;
 
   // 单行所能容纳的最大长度
-  private static final int MAX_LENGTH = 28;
+  private static final int MAX_LENGTH = 17;
 
   public static void main(String[] args) {
 
@@ -45,83 +45,107 @@ public class GroupingTest {
     } else {
       Tag tag;
       tag = new Tag();
-      tag.setContent("******");
+      tag.setContent("全部类别");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("***************");
+      tag.setContent("汽车儿童安全座椅");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("****");
+      tag.setContent("汽油、柴油");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("***");
+      tag.setContent("针织内衣、文胸");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("*");
+      tag.setContent("消防器材");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("************");
+      tag.setContent("家用燃气具");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("**");
+      tag.setContent("玩具");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("***");
+      tag.setContent("汽车轮胎");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("*******");
+      tag.setContent("电冰箱");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("*********");
+      tag.setContent("电线电缆");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("**");
+      tag.setContent("润滑油、制动液");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("*******");
+      tag.setContent("婴幼儿食具");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("***");
+      tag.setContent("童车");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("************");
+      tag.setContent("电动自行车");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("****");
+      tag.setContent("移动电源、USB插座");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("*****");
+      tag.setContent("儿童及婴幼儿服装");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("****");
+      tag.setContent("人造板");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("**********");
+      tag.setContent("蓄电池");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("*********");
+      tag.setContent("文具");
       tagList.add(tag);
 
       tag = new Tag();
-      tag.setContent("****");
+      tag.setContent("鞋");
+      tagList.add(tag);
+
+      tag = new Tag();
+      tag.setContent("小家电");
+      tagList.add(tag);
+
+      tag = new Tag();
+      tag.setContent("纸制品");
+      tagList.add(tag);
+
+      tag = new Tag();
+      tag.setContent("箱包皮具");
+      tagList.add(tag);
+
+      tag = new Tag();
+      tag.setContent("洗涤用品");
+      tagList.add(tag);
+
+      tag = new Tag();
+      tag.setContent("家电");
+      tagList.add(tag);
+
+      tag = new Tag();
+      tag.setContent("服装");
       tagList.add(tag);
     }
     // 按长度从小到大排序
