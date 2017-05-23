@@ -22,6 +22,7 @@ import com.hayukleung.view.StampView.StampViewActivity;
 import com.hayukleung.view.UsingViewGroup.AutoSizingFlowLayoutActivity;
 import com.hayukleung.view.UsingViewGroup.FlowLayoutActivity;
 import com.hayukleung.view.UsingViewGroup.UVGViewActivity;
+import com.hayukleung.view.WaveView.WaveViewActivity;
 
 /**
  * View
@@ -52,11 +53,6 @@ public class ViewMainActivity extends BaseEntranceActivity {
         startActivity(new Intent(ViewMainActivity.this, CLInfiniteLoadingViewActivity.class));
       }
     }));
-    //    addEntrance(new Entrance("CollapsibleView", new View.OnClickListener() {
-    //      @Override public void onClick(View v) {
-    //        startActivity(new Intent(ViewMainActivity.this, CollapsibleViewActivity.class));
-    //      }
-    //    }));
     addEntrance(new Entrance("UsingCollapsibleView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, UsingCollapsibleViewActivity.class));
@@ -105,6 +101,11 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("StampView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, StampViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("WaveView", new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, WaveViewActivity.class));
       }
     }));
     addEntrance(new Entrance("AutoSizingFlowLayout", new View.OnClickListener() {

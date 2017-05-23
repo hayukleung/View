@@ -76,6 +76,9 @@
         android:name=".StampView.StampViewActivity"
         android:label="StampView"/>
     <activity
+        android:name=".WaveView.WaveViewActivity"
+        android:label="WaveView"/>
+    <activity
         android:name=".UsingViewGroup.AutoSizingFlowLayoutActivity"
         android:label="AutoSizingFlowLayout"/>
     <activity
