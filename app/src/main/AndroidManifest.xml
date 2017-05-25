@@ -64,6 +64,9 @@
         android:name=".PatternView.PatternViewActivity"
         android:label="PatternView"/>
     <activity
+        android:name=".Percentage.PercentageCircleViewActivity"
+        android:label="PercentageCircleView"/>
+    <activity
         android:name=".RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity"
         android:label="RadarInfiniteLoadingView"/>
     <activity
