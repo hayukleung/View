@@ -280,7 +280,7 @@ public class HanziToPinyin {
         }
       }
       Log.w(TAG, "There is no Chinese collator, HanziToPinyin is disabled");
-      // FIXME sInstance = new HanziToPinyin(false);
+      // FIXME sInstance = new HanziToPinyin(false); // 英文语音下 false
       sInstance = new HanziToPinyin(true);
       return sInstance;
     }

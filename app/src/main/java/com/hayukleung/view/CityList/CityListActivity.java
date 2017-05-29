@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import rx.functions.Action1;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -52,6 +53,15 @@ public class CityListActivity extends AppCompatActivity {
       JsonCity.getCityList()
           .subscribeOn(Schedulers.io())
           .observeOn(PausedHandlerScheduler.from(this.mHandler))
+          .map(new Func1<List<City>, List<City>>() {
+            @Override public List<City> call(List<City> cities) {
+              List<City> result = new ArrayList<>();
+              for (City city : cities) {
+                result.addAll(city.getSub());
+              }
+              return result;
+            }
+          })
           .subscribe(new Action1<List<City>>() {
             @Override public void call(List<City> cities) {
 
