@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+
 import com.hayukleung.BaseEntranceActivity;
 import com.hayukleung.Entrance;
 import com.hayukleung.view.BezierCurveView.BezierCurveViewActivity;
 import com.hayukleung.view.BezierCurveView.BezierInfiniteLoadingViewActivity;
 import com.hayukleung.view.CLInfiniteLoadingView.CLInfiniteLoadingViewActivity;
+import com.hayukleung.view.CircleView.CircleViewActivity;
 import com.hayukleung.view.CityList.CityListActivity;
 import com.hayukleung.view.CollapsibleView.UsingCollapsibleView.UsingCollapsibleViewActivity;
 import com.hayukleung.view.GroupingTagView.GroupingTagViewActivity;
@@ -48,6 +50,12 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("BezierInfiniteLoadingView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, BezierInfiniteLoadingViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("CircleView", new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, CircleViewActivity.class));
       }
     }));
     addEntrance(new Entrance("CityList", new View.OnClickListener() {

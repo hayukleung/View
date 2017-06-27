@@ -1,113 +1,116 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hayukleung.view">
+<manifest package="com.hayukleung.view"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <application
-      android:name="com.hayukleung.App"
-      android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
-      android:label="@string/app_name"
-      android:supportsRtl="true"
-      android:theme="@style/AppTheme">
+    <application
+        android:name="com.hayukleung.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
 
-    <activity
-        android:name="com.hayukleung.EntranceActivity"
-        android:label="@string/app_name">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
+        <activity
+            android:name="com.hayukleung.EntranceActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.DEFAULT"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-    <!--using-->
-    <activity
-        android:name="com.hayukleung.using.UsingMainActivity"
-        android:label="UsingMain"/>
-    <activity
-        android:name="com.hayukleung.using.UsingCoordinatorLayoutActivity"
-        android:label="UsingCoordinatorLayout"/>
+        <!--using-->
+        <activity
+            android:name="com.hayukleung.using.UsingMainActivity"
+            android:label="UsingMain" />
+        <activity
+            android:name="com.hayukleung.using.UsingCoordinatorLayoutActivity"
+            android:label="UsingCoordinatorLayout" />
 
-    <!--view-->
+        <!--view-->
 
-    <activity
-        android:name=".ViewMainActivity"
-        android:label="ViewMain"/>
-    <activity
-        android:name=".BezierCurveView.BezierCurveViewActivity"
-        android:label="BezierCurveView"/>
-    <activity
-        android:name=".BezierCurveView.BezierInfiniteLoadingViewActivity"
-        android:label="BezierInfiniteLoadingView"/>
-    <activity
-        android:name=".CityList.CityListActivity"
-        android:label="CityList"/>
-    <activity
-        android:name=".CLInfiniteLoadingView.CLInfiniteLoadingViewActivity"
-        android:label="CLInfiniteLoadingView"/>
-    <!--<activity-->
-    <!--android:name=".CollapsibleView.CollapsibleViewActivity"-->
-    <!--android:label="CollapsibleView"/>-->
-    <activity
-        android:name=".CollapsibleView.UsingCollapsibleView.UsingCollapsibleViewActivity"
-        android:label="UsingCollapsibleView"/>
-    <activity
-        android:name=".GroupingTagView.GroupingTagViewActivity"
-        android:label="GroupingTagView"/>
-    <activity
-        android:name=".HandleView.HandleViewActivity"
-        android:label="HandleView"/>
-    <activity
-        android:name=".IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity"
-        android:label="IQiYiInfiniteLoadingView"/>
-    <activity
-        android:name=".MDLikeLinkTextView.MDLikeLinkTextViewActivity"
-        android:label="MDLikeLinkTextView"/>
-    <activity
-        android:name=".PatternView.PatternViewActivity"
-        android:label="PatternView"/>
-    <activity
-        android:name=".Percentage.PercentageCircleViewActivity"
-        android:label="PercentageCircleView"/>
-    <activity
-        android:name=".RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity"
-        android:label="RadarInfiniteLoadingView"/>
-    <activity
-        android:name=".ShyaringanView.ShyaringanViewActivity"
-        android:label="ShyaringanView"/>
-    <activity
-        android:name=".SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity"
-        android:label="SonarInfiniteLoadingView"/>
-    <activity
-        android:name=".StampView.StampViewActivity"
-        android:label="StampView"/>
-    <activity
-        android:name=".WaveView.WaveViewActivity"
-        android:label="WaveView"/>
-    <activity
-        android:name=".UsingViewGroup.AutoSizingFlowLayoutActivity"
-        android:label="AutoSizingFlowLayout"/>
-    <activity
-        android:name=".UsingViewGroup.FlowLayoutActivity"
-        android:label="FlowLayout"/>
-    <activity
-        android:name=".UsingViewGroup.UVGViewActivity"
-        android:label="UVGView"/>
+        <activity
+            android:name=".ViewMainActivity"
+            android:label="ViewMain" />
+        <activity
+            android:name=".BezierCurveView.BezierCurveViewActivity"
+            android:label="BezierCurveView" />
+        <activity
+            android:name=".BezierCurveView.BezierInfiniteLoadingViewActivity"
+            android:label="BezierInfiniteLoadingView" />
+        <activity
+            android:name=".CircleView.CircleViewActivity"
+            android:label="CircleView" />
+        <activity
+            android:name=".CityList.CityListActivity"
+            android:label="CityList" />
+        <activity
+            android:name=".CLInfiniteLoadingView.CLInfiniteLoadingViewActivity"
+            android:label="CLInfiniteLoadingView" />
+        <!--<activity-->
+        <!--android:name=".CollapsibleView.CollapsibleViewActivity"-->
+        <!--android:label="CollapsibleView"/>-->
+        <activity
+            android:name=".CollapsibleView.UsingCollapsibleView.UsingCollapsibleViewActivity"
+            android:label="UsingCollapsibleView" />
+        <activity
+            android:name=".GroupingTagView.GroupingTagViewActivity"
+            android:label="GroupingTagView" />
+        <activity
+            android:name=".HandleView.HandleViewActivity"
+            android:label="HandleView" />
+        <activity
+            android:name=".IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActivity"
+            android:label="IQiYiInfiniteLoadingView" />
+        <activity
+            android:name=".MDLikeLinkTextView.MDLikeLinkTextViewActivity"
+            android:label="MDLikeLinkTextView" />
+        <activity
+            android:name=".PatternView.PatternViewActivity"
+            android:label="PatternView" />
+        <activity
+            android:name=".Percentage.PercentageCircleViewActivity"
+            android:label="PercentageCircleView" />
+        <activity
+            android:name=".RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity"
+            android:label="RadarInfiniteLoadingView" />
+        <activity
+            android:name=".ShyaringanView.ShyaringanViewActivity"
+            android:label="ShyaringanView" />
+        <activity
+            android:name=".SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity"
+            android:label="SonarInfiniteLoadingView" />
+        <activity
+            android:name=".StampView.StampViewActivity"
+            android:label="StampView" />
+        <activity
+            android:name=".WaveView.WaveViewActivity"
+            android:label="WaveView" />
+        <activity
+            android:name=".UsingViewGroup.AutoSizingFlowLayoutActivity"
+            android:label="AutoSizingFlowLayout" />
+        <activity
+            android:name=".UsingViewGroup.FlowLayoutActivity"
+            android:label="FlowLayout" />
+        <activity
+            android:name=".UsingViewGroup.UVGViewActivity"
+            android:label="UVGView" />
 
-    <!--xfermode-->
+        <!--xfermode-->
 
-    <activity
-        android:name="com.hayukleung.xfermode.XfermodeMainActivity"
-        android:label="XfermodeMain"/>
-    <activity
-        android:name="com.hayukleung.xfermode.UsingColorMatrixColorFilterViewActivity"
-        android:label="UsingColorMatrixColorFilterView"/>
-    <activity
-        android:name="com.hayukleung.xfermode.UsingPorterDuffColorFilterViewActivity"
-        android:label="UsingPorterDuffColorFilterView"/>
-    <activity
-        android:name="com.hayukleung.xfermode.PorterDuffXfermodeViewActivity"
-        android:label="PorterDuffXfermodeView"/>
-  </application>
+        <activity
+            android:name="com.hayukleung.xfermode.XfermodeMainActivity"
+            android:label="XfermodeMain" />
+        <activity
+            android:name="com.hayukleung.xfermode.UsingColorMatrixColorFilterViewActivity"
+            android:label="UsingColorMatrixColorFilterView" />
+        <activity
+            android:name="com.hayukleung.xfermode.UsingPorterDuffColorFilterViewActivity"
+            android:label="UsingPorterDuffColorFilterView" />
+        <activity
+            android:name="com.hayukleung.xfermode.PorterDuffXfermodeViewActivity"
+            android:label="PorterDuffXfermodeView" />
+    </application>
 
 </manifest>
