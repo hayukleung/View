@@ -19,6 +19,7 @@ import com.hayukleung.view.IQiYiInfiniteLoadingView.IQiYiInfiniteLoadingViewActi
 import com.hayukleung.view.MDLikeLinkTextView.MDLikeLinkTextViewActivity;
 import com.hayukleung.view.PatternView.PatternViewActivity;
 import com.hayukleung.view.Percentage.PercentageCircleViewActivity;
+import com.hayukleung.view.ProgressBar.ProgressBarActivity;
 import com.hayukleung.view.RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity;
 import com.hayukleung.view.ShyaringanView.ShyaringanViewActivity;
 import com.hayukleung.view.SonarInfiniteLoadingView.SonarInfiniteLoadingViewActivity;
@@ -101,6 +102,12 @@ public class ViewMainActivity extends BaseEntranceActivity {
     addEntrance(new Entrance("PercentageCircleView", new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(new Intent(ViewMainActivity.this, PercentageCircleViewActivity.class));
+      }
+    }));
+    addEntrance(new Entrance("ProgressBar", new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        startActivity(new Intent(ViewMainActivity.this, ProgressBarActivity.class));
       }
     }));
     addEntrance(new Entrance("RadarInfiniteLoadingView", new View.OnClickListener() {

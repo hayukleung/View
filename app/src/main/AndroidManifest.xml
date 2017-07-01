@@ -73,6 +73,9 @@
             android:name=".Percentage.PercentageCircleViewActivity"
             android:label="PercentageCircleView" />
         <activity
+            android:name=".ProgressBar.ProgressBarActivity"
+            android:label="ProgressBar" />
+        <activity
             android:name=".RadarInfiniteLoadingView.RadarInfiniteLoadingViewActivity"
             android:label="RadarInfiniteLoadingView" />
         <activity
