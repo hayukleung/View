@@ -1,6 +1,6 @@
 package com.hayukleung.view.GroupingTagView;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * View

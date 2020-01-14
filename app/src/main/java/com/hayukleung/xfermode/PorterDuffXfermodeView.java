@@ -168,11 +168,7 @@ public class PorterDuffXfermodeView extends BaseView {
     canvas.drawText("dst", size / 2 + size * 7, (int) (size * (2 + 0.3f)), mPaintForText);
 
     // 创建一个图层，在图层上演示图形混合后的效果
-    int layer = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, Canvas.MATRIX_SAVE_FLAG |
-        Canvas.CLIP_SAVE_FLAG |
-        Canvas.HAS_ALPHA_LAYER_SAVE_FLAG |
-        Canvas.FULL_COLOR_LAYER_SAVE_FLAG |
-        Canvas.CLIP_TO_LAYER_SAVE_FLAG);
+    int layer = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, Canvas.ALL_SAVE_FLAG);
 
     mPaintForText.setTextSize(Screen.getInstance(getContext()).sp2px(12));
 

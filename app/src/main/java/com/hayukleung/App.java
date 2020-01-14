@@ -1,6 +1,6 @@
 package com.hayukleung;
 
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

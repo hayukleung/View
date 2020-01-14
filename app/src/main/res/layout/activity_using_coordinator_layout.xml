@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,14 +8,14 @@
     tools:ignore="RtlHardcoded"
     >
 
-  <android.support.design.widget.AppBarLayout
+  <com.google.android.material.appbar.AppBarLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
       app:elevation="0dp"
       >
 
-    <android.support.design.widget.CollapsingToolbarLayout
+    <com.google.android.material.appbar.CollapsingToolbarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
@@ -42,9 +42,9 @@
           >
 
       </FrameLayout>
-    </android.support.design.widget.CollapsingToolbarLayout>
-  </android.support.design.widget.AppBarLayout>
-  <android.support.v4.widget.NestedScrollView
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+  </com.google.android.material.appbar.AppBarLayout>
+  <androidx.core.widget.NestedScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:scrollbars="none"
@@ -57,9 +57,9 @@
         android:layout_height="30dp"
         android:background="@android:color/holo_blue_dark"
         />
-  </android.support.v4.widget.NestedScrollView>
+  </androidx.core.widget.NestedScrollView>
 
-  <android.support.v7.widget.Toolbar
+  <androidx.appcompat.widget.Toolbar
       android:id="@+id/main.toolbar"
       android:layout_width="match_parent"
       android:layout_height="?attr/actionBarSize"
@@ -67,7 +67,7 @@
       app:layout_anchor="@id/frameLayout"
       app:theme="@style/ThemeOverlay.AppCompat.Dark"
       >
-  </android.support.v7.widget.Toolbar>
+  </androidx.appcompat.widget.Toolbar>
 
   <TextView
 
@@ -83,4 +83,4 @@
       >
 
   </TextView>
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

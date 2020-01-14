@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.2"
+  compileSdkVersion 28
   defaultConfig {
     applicationId "com.hayukleung.view"
     minSdkVersion 14
-    targetSdkVersion 25
+    targetSdkVersion 28
     versionCode 1
     versionName "1.0"
   }
@@ -16,25 +15,29 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+  compileOptions {
+    targetCompatibility = 1.8
+    sourceCompatibility = 1.8
+  }
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  compile 'com.android.support:appcompat-v7:25.3.0'
-  compile 'com.android.support:design:25.3.0'
-  compile 'com.android.support:recyclerview-v7:25.3.0'
-  compile 'com.android.support:multidex:1.0.1'
-  compile 'com.google.code.gson:gson:2.8.0'
-  compile 'de.greenrobot:java-common:2.3.1'
+  implementation 'androidx.appcompat:appcompat:1.1.0'
+  implementation 'com.google.android.material:material:1.0.0'
+  implementation 'androidx.recyclerview:recyclerview:1.1.0'
+  implementation 'androidx.multidex:multidex:2.0.1'
+  implementation 'com.google.code.gson:gson:2.8.5'
+  implementation 'de.greenrobot:java-common:2.3.1'
 
-  compile 'com.github.hayukleung:collapsible-view:1.0.1'
+  implementation 'com.github.hayukleung:collapsible-view:1.0.1'
 
-  compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
-  compile "io.reactivex:rxjava:${RXJAVA_VERSION}"
-  compile "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"
-  compile "com.jakewharton.rxbinding:rxbinding-recyclerview-v7:${RXBINDING_SUPPORT_VERSION}"
-  compile "com.jakewharton.rxbinding:rxbinding-support-v4:${RXBINDING_SUPPORT_VERSION}"
-  compile "com.trello:rxlifecycle-android:${RXLIFECYCLE_VERSION}"
-  compile "com.trello:rxlifecycle-navi:${RXLIFECYCLE_VERSION}"
+  implementation "io.reactivex:rxandroid:${RXANDROID_VERSION}"
+  implementation "io.reactivex:rxjava:${RXJAVA_VERSION}"
+  implementation "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"
+  implementation "com.jakewharton.rxbinding:rxbinding-recyclerview-v7:${RXBINDING_SUPPORT_VERSION}"
+  implementation "com.jakewharton.rxbinding:rxbinding-support-v4:${RXBINDING_SUPPORT_VERSION}"
+  implementation "com.trello:rxlifecycle-android:${RXLIFECYCLE_VERSION}"
+  implementation "com.trello:rxlifecycle-navi:${RXLIFECYCLE_VERSION}"
 }

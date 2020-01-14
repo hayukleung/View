@@ -2,8 +2,8 @@ package com.hayukleung.view.CollapsibleView.UsingCollapsibleView;
 
 import android.os.Bundle;
 import android.os.Message;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
 import com.hayukleung.collapsibleview.CollapsibleView;
 import com.hayukleung.collapsibleview.Element;
 import com.hayukleung.collapsibleview.IElement;

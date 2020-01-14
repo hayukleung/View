@@ -1,7 +1,7 @@
 package com.hayukleung.view.GroupingTagView;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import com.hayukleung.view.BaseView;
